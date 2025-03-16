@@ -1,0 +1,46 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    padding: 3em;
+
+    height: 100vh;
+}
+
+.welcome-container {
+    margin-left: 5em;
+    margin-top: 5em;
+    margin-right: auto;
+
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    font-size: 46px;
+    text-align: center;
+
+    font-weight: 500;
+}
+
+.title {
+    font-size: 60px;
+    font-weight: 900;
+}
+
+button {
+    margin-top: 3em;
+    width: fit-content;
+    cursor: pointer;
+
+    align-self: center;
+
+    border: none;
+
+    padding: 1em 1.5em;
+
+    font-size: 20px;
+
+    border-radius: 5px;
+
+    background-color: rgb(199, 129, 0);
+}

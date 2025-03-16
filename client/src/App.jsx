@@ -1,7 +1,12 @@
+import Header from "./components/header/Header";
+import Home from "./components/home/Home";
+
 function App() {
   return (
     <>
-      <h1>The Drunken Dragon</h1>
+      <Header />
+
+      <Home />
     </>
   );
 }

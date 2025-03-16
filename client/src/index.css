@@ -11,7 +11,11 @@
 }
 
 body {
-  /* line-height: 1.5; */
+  /* temporary font family */
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+
+  background-color: grey;
 }
 
 input,
@@ -31,7 +35,13 @@ h6 {
   overflow-wrap: break-word;
 }
 
-/* 8. Improve line wrapping */
 p {
   text-wrap: pretty;
+}
+
+a {
+  text-decoration: none;
+  /* Remove underline */
+  color: inherit;
+  /* Remove blue color, inherit from parent */
 }
