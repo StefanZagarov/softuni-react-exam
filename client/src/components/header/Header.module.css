@@ -1,7 +1,9 @@
 .nav-container {
     background-color: rgb(85, 85, 85);
 
-    display: flex;
+    display: inline-flex;
+
+    min-width: 100%;
 }
 
 .logo {
