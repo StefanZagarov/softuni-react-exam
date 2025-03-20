@@ -11,7 +11,7 @@ export default function Header() {
                 <ul>
                     <NavLink to="/catalog">
                         <li>
-                            Quest Board
+                            Quests
                             <div className={styles["border"]}> </div>
                         </li>
                     </NavLink>

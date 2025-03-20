@@ -12,8 +12,8 @@ function App() {
       <Routes>
         <Route index element={<Home />} />
         <Route path="/catalog" element={<Quests />} />
-        <Route path="/character" element={<Quests />} />
-        <Route path="/create-quest" element={<Quests />} />
+        {/* <Route path="/character" element={<Quests />} /> */}
+        {/* <Route path="/create-quest" element={<Quests />} /> */}
       </Routes>
     </>
   );
