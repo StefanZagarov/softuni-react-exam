@@ -27,7 +27,7 @@ h2 {
     font-weight: 900;
 }
 
-button {
+.btn {
     margin-top: 3em;
     width: fit-content;
     cursor: pointer;
@@ -42,7 +42,7 @@ button {
 
     border-radius: 5px;
 
-    background-color: rgb(199, 129, 0);
+    background-color: rgb(190, 125, 4);
 
     transition: all 0.3s ease;
 }

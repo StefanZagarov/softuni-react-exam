@@ -1,0 +1,61 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 25px;
+
+    max-width: 60%;
+
+    margin: 3em auto;
+
+    padding: 1em 15em;
+    padding-top: 5em;
+}
+
+label {
+    font-size: 30px;
+}
+
+input {
+    outline: none;
+    border: none;
+    border-radius: 5px;
+
+    height: 2em;
+
+    font-size: 24px;
+
+    padding: 0 1em;
+
+    margin-bottom: 2em;
+}
+
+input:focus {
+    border: 2px solid rgb(190, 125, 4);
+}
+
+textarea {
+    outline: none;
+    border: none;
+    border-radius: 5px;
+
+    min-height: 200px;
+    resize: vertical;
+
+    padding: 0.5em 1em;
+}
+
+textarea:focus {
+    border: 2px solid rgb(190, 125, 4);
+}
+
+.btn {
+    margin: 3em auto;
+
+    width: 20%;
+
+    height: 3em;
+
+    border: none;
+    border-radius: 5px;
+}

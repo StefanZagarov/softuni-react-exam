@@ -1,7 +1,9 @@
 import { Routes, Route } from "react-router";
 import Header from "./components/header/Header";
 import Home from "./components/home/Home";
-import Quests from "./components/quests/Quests";
+import Stories from "./components/stories/Stories";
+import Character from "./components/character/Character";
+import CharacterEdit from "./components/character-edit/CharacterEdit";
 
 function App() {
   return (
@@ -11,9 +13,10 @@ function App() {
 
       <Routes>
         <Route index element={<Home />} />
-        <Route path="/catalog" element={<Quests />} />
-        {/* <Route path="/character" element={<Quests />} /> */}
-        {/* <Route path="/create-quest" element={<Quests />} /> */}
+        <Route path="/catalog" element={<Stories />} />
+        <Route path="/character" element={<Character />} />
+        <Route path="/character/edit" element={<CharacterEdit />} />
+        {/* <Route path="/create-story" element={<Story />} /> */}
       </Routes>
     </>
   );

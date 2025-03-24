@@ -2,11 +2,11 @@
     display: flex;
     justify-content: center;
 
-    margin-top: 2em;
+
     margin-bottom: 2em;
 }
 
-.quest-board {
+.story-board {
     display: flex;
     gap: 5em;
     margin: 0 15em;

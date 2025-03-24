@@ -11,7 +11,7 @@ export default function Header() {
                 <ul>
                     <NavLink to="/catalog">
                         <li>
-                            Quests
+                            Stories
                             <div className={styles["border"]}> </div>
                         </li>
                     </NavLink>
@@ -24,9 +24,9 @@ export default function Header() {
                         </li>
                     </NavLink>
 
-                    <NavLink to="/create-quest">
+                    <NavLink to="/create-story">
                         <li>
-                            Create Quest
+                            Create Story
                             <div className={styles["border"]}> </div>
                         </li>
                     </NavLink>

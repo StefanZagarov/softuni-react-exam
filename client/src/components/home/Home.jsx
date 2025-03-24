@@ -7,7 +7,7 @@ export default function Home() {
             <div className={styles["welcome-container"]}>
                 <h2>Welcome to <p className={styles["title"]}>The Drunken Dragon!</p></h2>
 
-                <button><Link to="/catalog">Quest Board</Link></button>
+                <Link to="/catalog"><button className={styles["btn"]}> Go Inside </button></Link>
             </div>
 
         </div>
