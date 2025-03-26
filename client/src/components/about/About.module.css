@@ -1,0 +1,20 @@
+.container {
+
+    width: 50%;
+
+    margin: 3em auto;
+}
+
+.logo {
+    color: rgb(190, 125, 4);
+
+    font-size: 60px;
+}
+
+.title {
+    font-size: 50px;
+}
+
+.description {
+    font-size: 30px;
+}

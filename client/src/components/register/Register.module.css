@@ -4,7 +4,7 @@
     border: 1px solid black;
     border-radius: 25px;
 
-    max-width: 60%;
+    max-width: 50%;
 
     margin: 3em auto;
 
@@ -36,27 +36,10 @@
     padding: 0 1em;
 
     margin-bottom: 2em;
-
-    transition: 0.3s;
 }
 
 .input:focus {
-    border-color: rgb(190, 125, 4);
-}
-
-.description {
-    outline: none;
-    border: none;
-    border-radius: 5px;
-
-    min-height: 200px;
-    resize: vertical;
-
-    padding: 0.5em 1em;
-}
-
-.description:focus {
-    border: rgb(190, 125, 4);
+    border: 2px solid rgb(190, 125, 4);
 }
 
 .btn {

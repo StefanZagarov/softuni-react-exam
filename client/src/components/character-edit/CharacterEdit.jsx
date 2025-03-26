@@ -1,27 +1,37 @@
 import styles from "./CharacterEdit.module.css";
+import { useNavigate } from "react-router";
 
 export default function CharacterEdit() {
+    const navigate = useNavigate();
 
     function formActionHandler(formData) {
         console.log(formData);
+
+        navigate(`/character`);
     }
 
     return (
         <>
-            <h2>Your character</h2>
+            <h2 className={styles[`header`]}>Edit Character</h2>
 
             <form action={formActionHandler} className={styles["container"]}>
-                <label htmlFor="characterName">Character Name</label>
-                <input type="text" id="characterName" name="characterName" />
+                <label className={styles['label']} htmlFor="characterName">Character Name</label>
+                <input className={styles['input']} type="text" id="characterName" name="characterName" />
 
-                <label htmlFor="role">Role</label>
-                <input type="text" id="role" name="role" />
+                <label className={styles['label']} htmlFor="image">Character Image</label>
+                <input className={styles['input']} type="text" id="image" name="image" />
 
-                <label htmlFor="image">Character Image</label>
-                <input type="text" id="image" name="image" />
+                <label className={styles['label']} htmlFor="role">Role</label>
+                <input className={styles['input']} type="text" id="role" name="role" />
 
-                <label htmlFor="description">Description</label>
-                <textarea type="text" id="description" name="description" />
+                <label className={styles['label']} htmlFor="species">Species</label>
+                <input className={styles['input']} type="text" id="species" name="species" />
+
+                <label className={styles['label']} htmlFor="alignment">Alignment</label>
+                <input className={styles['input']} type="text" id="alignment" name="alignment" />
+
+                <label className={styles['label']} htmlFor="description">Description</label>
+                <textarea className={styles['description']} type="text" id="description" name="description" />
 
                 <button className={styles["btn"]}>Submit</button>
             </form>

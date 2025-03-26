@@ -8,6 +8,7 @@
     padding: 1em;
 
     width: 500px;
+    max-height: 565px;
 
     background-color: rgb(168, 168, 168);
 }
@@ -17,6 +18,8 @@
     font-weight: bold;
 
     margin: auto;
+
+    text-align: center;
 
     width: 60%;
 }
@@ -38,6 +41,9 @@
     margin: auto;
 
     margin-bottom: 1em;
+    border-radius: 5px;
+
+    object-fit: fill;
 }
 
 .story-desc {

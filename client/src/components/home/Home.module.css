@@ -15,7 +15,7 @@
     flex-direction: column;
 }
 
-h2 {
+.home {
     font-size: 46px;
     text-align: center;
 
@@ -29,14 +29,13 @@ h2 {
 
 .btn {
     margin-top: 3em;
-    width: fit-content;
     cursor: pointer;
 
     align-self: center;
 
     border: none;
 
-    padding: 1em 1.5em;
+    padding: 0.8em 1.5em;
 
     font-size: 20px;
 
@@ -47,6 +46,6 @@ h2 {
     transition: all 0.3s ease;
 }
 
-button:hover {
+.btn:hover {
     background-color: white;
 }

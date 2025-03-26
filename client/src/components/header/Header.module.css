@@ -17,7 +17,7 @@
 
     cursor: pointer;
 
-    width: 230px;
+    width: 240px;
 }
 
 .nav-links {
@@ -60,7 +60,6 @@ li:hover {
 }
 
 li:hover>.border {
-    border: 1px solid rgb(190, 125, 4);
-    /* Set the border color */
+    border-color: rgb(190, 125, 4);
     transform: translateY(-6px);
 }

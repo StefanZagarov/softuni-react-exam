@@ -4,25 +4,35 @@ import styles from "./Character.module.css";
 export default function Character() {
     return (
         <>
-            <div className={styles["header"]}>
-                <h2>Character</h2>
-                <Link to="edit"> <button className={styles["btn"]}> Edit </button></Link>
+            <div className={styles["header-container"]}>
+                <h2 className={styles["header"]}>Character</h2>
+                <Link to="edit" className={styles["btn"]}> Edit </Link>
             </div>
 
             <div className={styles["container"]}>
                 <main>
-                    <img className={styles["img"]} src="./" alt="" />
+                    <img className={styles["img"]} src="https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/06/alma-from-monster-hunter-wilds.jpg" alt="" />
                 </main>
 
                 <aside className={styles["aside"]}>
                     <div>
                         <p className={styles["label"]}>Name</p>
-                        <p className={styles["info"]}>Kan'tarraaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                        <p className={styles["info"]}>Kan'tarr</p>
                     </div>
 
                     <div>
                         <p className={styles["label"]}>Role</p>
-                        <p className={styles["info"]}>Battle Mageaaaaaaaaaaaaaaaaaaaaaaaaaаааааааааааа</p>
+                        <p className={styles["info"]}>Battle Mage</p>
+                    </div>
+
+                    <div>
+                        <p className={styles["label"]}>Species</p>
+                        <p className={styles["info"]}>Hooman</p>
+                    </div>
+
+                    <div>
+                        <p className={styles["label"]}>Alignment</p>
+                        <p className={styles["info"]}>Lawful Good</p>
                     </div>
                 </aside>
             </div>

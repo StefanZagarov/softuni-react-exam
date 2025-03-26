@@ -31,13 +31,6 @@ export default function Header() {
                         </li>
                     </NavLink>
 
-                    <NavLink to="/logout">
-                        <li>
-                            Logout
-                            <div className={styles["border"]}> </div>
-                        </li>
-                    </NavLink>
-
                     {/* Logged out */}
                     <NavLink to="/login">
                         <li>
@@ -49,6 +42,13 @@ export default function Header() {
                     <NavLink to="/register">
                         <li>
                             Register
+                            <div className={styles["border"]}> </div>
+                        </li>
+                    </NavLink>
+
+                    <NavLink to="/logout">
+                        <li>
+                            Logout
                             <div className={styles["border"]}> </div>
                         </li>
                     </NavLink>
