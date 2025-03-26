@@ -10,10 +10,11 @@ import Register from "./components/register/Register";
 import Logout from "./components/logout/Logout";
 import StoryDetails from "./components/story-details/StoryDetails";
 import About from "./components/about/About";
+import UserProvider from "./components/providers/UserProvider";
 
 function App() {
   return (
-    <>
+    <UserProvider>
       <Header />
 
       <Routes>
@@ -28,7 +29,7 @@ function App() {
         <Route path="/logout" element={<Logout />} />
         <Route path="/about" element={<About />} />
       </Routes>
-    </>
+    </UserProvider>
   );
 }
 

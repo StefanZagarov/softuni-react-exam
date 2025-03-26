@@ -1,7 +1,7 @@
 import { createContext, useContext } from "react";
 
-// 1. Create user context
-const userContext = createContext({
+// 1. Create user context - used in the provider
+export const UserContext = createContext({
     _id: '',
     username: '',
     accessToken: '',
@@ -11,5 +11,5 @@ const userContext = createContext({
 
 // 2. Hook for easier import - automates the need to use `useContext`
 export function useUserContext() {
-    return useContext(userContext);
+    return useContext(UserContext);
 }
