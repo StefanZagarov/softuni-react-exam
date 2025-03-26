@@ -6,7 +6,7 @@
 }
 
 .logo {
-    color: rgb(190, 125, 4);
+    color: var(--main-color);
 
     font-size: 60px;
 }

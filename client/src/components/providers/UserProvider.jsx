@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { UserContext } from "../../contexts/UserContext";
 
+// Provide the values from `UserContext.js` to the whole app (the components wrapped in UseProvider in App.jsx)
 export default function UserProvider(
     // The UseProvider component automatically gets all components it wraps in the `children` property
     { children }

@@ -10,7 +10,7 @@
 .logo {
     margin: 0.2em 1em;
     text-align: center;
-    color: rgb(190, 125, 4);
+    color: var(--main-color);
     font-size: 30px;
 
     line-height: 1.2;
@@ -56,10 +56,10 @@ li {
 }
 
 li:hover {
-    color: rgb(190, 125, 4);
+    color: var(--main-color);
 }
 
 li:hover>.border {
-    border-color: rgb(190, 125, 4);
+    border-color: var(--main-color);
     transform: translateY(-6px);
 }

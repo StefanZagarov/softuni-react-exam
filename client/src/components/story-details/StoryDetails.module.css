@@ -9,7 +9,7 @@
 }
 
 .title {
-    color: rgb(190, 125, 4);
+    color: var(--main-color);
 
     font-size: 30px;
     margin-bottom: 2em;

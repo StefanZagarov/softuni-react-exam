@@ -17,7 +17,7 @@
     justify-content: center;
     font-size: 36px;
     margin-bottom: 2em;
-    /* color: rgb(190, 125, 4); */
+    /* color: var(--main-color); */
 }
 
 .label {
@@ -39,7 +39,7 @@
 }
 
 .character-name:focus {
-    border: 2px solid rgb(190, 125, 4);
+    border: 2px solid var(--main-color);
 }
 
 .description {
@@ -54,7 +54,7 @@
 }
 
 .description:focus {
-    border: 2px solid rgb(190, 125, 4);
+    border: 2px solid var(--main-color);
 }
 
 .btn {
@@ -73,7 +73,7 @@
 
     border-radius: 5px;
 
-    background-color: rgb(190, 125, 4);
+    background-color: var(--main-color);
 
     transition: all 0.3s ease;
 }
