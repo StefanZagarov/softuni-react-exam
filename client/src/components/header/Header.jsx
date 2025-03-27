@@ -58,21 +58,19 @@ export default function Header() {
                         </>
                     }
 
-
-                    {/* {About the site} */}
                     <NavLink to="/about">
                         <li>
                             About
                             <div className={styles["border"]}> </div>
                         </li>
                     </NavLink>
+
+                    <div className={styles["username"]}>
+                        {username ? username : ``}
+                        {/* <div className={styles["border"]}> </div> */}
+                    </div>
                 </ul>
-
-
             </nav>
-            <div className={styles["username"]}>
-                {username ? username : ``}
-            </div>
         </div>
     );
 }

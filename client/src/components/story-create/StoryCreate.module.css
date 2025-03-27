@@ -24,7 +24,7 @@
     font-size: 30px;
 }
 
-.character-name {
+.title {
     outline: none;
     border: none;
     border-radius: 5px;
@@ -38,7 +38,7 @@
     margin-bottom: 2em;
 }
 
-.character-name:focus {
+.title:focus {
     border: 2px solid var(--main-color);
 }
 

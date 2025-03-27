@@ -1,7 +1,7 @@
 // A request utility function for communicating with the server. The logic is written to fit all the situations in which this function will be used. For this purpose, we will make it as abstract as possible and make a few checks
 
 async function request(method, url, data, options = {}) {
-
+    console.log(options);
     // The default method of a request is GET, therefore we need to set the method only if it is not GET (although this may be redundant)
     if (method != 'GET') {
         options.method = method;
