@@ -7,17 +7,15 @@ import { useUserContext } from "../../contexts/UserContext";
 export default function Login() {
     const navigate = useNavigate();
     const login = useLogin();
-    const [_, loginAction, isPending] = useActionState(loginHandler, { username: ``, password: `` });
 
     // Get login handling function from the user context so we can update the app with the login data
     const { userLoginHandler } = useUserContext();
-    console.log(userLoginHandler);
 
     async function loginHandler(_, formData) {
         const { username, password } = Object.fromEntries(formData);
 
         const data = await login(username, password);
-        console.log(`login data:`, data);
+
         if (data.code === 403) {
             // TODO: Use toaster
             console.log("Wrong username or password");
@@ -29,6 +27,8 @@ export default function Login() {
 
         navigate(`/`);
     }
+
+    const [_, loginAction, isPending] = useActionState(loginHandler, { username: ``, password: `` });
 
     return (
         <>

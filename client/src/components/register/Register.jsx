@@ -1,13 +1,13 @@
 import { useActionState } from "react";
 import { useRegister } from "../../api/authApi";
 import styles from "./Register.module.css";
-import { useNavigate } from "react-router";
+import { useUserContext } from "../../contexts/UserContext";
 
 export default function Register() {
-    const navigate = useNavigate();
     // Register custom hook
     const register = useRegister();
-    // TODO: Automatic login
+
+    const { userLoginHandler } = useUserContext();
 
     async function registerHandler(previousState, formData) {
         const { username, password, rePass } = Object.fromEntries(formData);
@@ -20,10 +20,8 @@ export default function Register() {
 
         try {
             const userData = await register(username, password);
-            console.log(userData);
 
-            // Login function which will have redirect and state storage in it
-            navigate(`/login`);
+            userLoginHandler(userData);
         } catch (error) {
             console.log(error);
         }

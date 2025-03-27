@@ -5,10 +5,11 @@ export default function CharacterEdit() {
     const navigate = useNavigate();
 
     function formActionHandler(formData) {
-        console.log(formData);
 
-        navigate(`/character`);
+        // navigate(`/character`);
     }
+
+    // TODO: Use optimistic approach
 
     return (
         <>

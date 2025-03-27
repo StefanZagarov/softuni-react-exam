@@ -11,6 +11,6 @@ export const UserContext = createContext({
 
 // 2. Hook for easier import - automates the need to use `useContext`
 export function useUserContext() {
-    const data = useContext(UserContext);
-    return data;
+    const userData = useContext(UserContext);
+    return userData;
 }

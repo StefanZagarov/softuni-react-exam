@@ -1,7 +1,10 @@
+import useAuth from "../../hooks/useAuth";
 import styles from "./Header.module.css";
 import { Link, NavLink } from "react-router";
 
 export default function Header() {
+    const { username, isAuthenticated } = useAuth();
+    console.log(isAuthenticated);
     return (
         <div className={styles["nav-container"]}>
             <h2 className={styles["logo"]}> <Link to="/"> <p>The</p> Drunken Dragon</Link></h2>
@@ -16,42 +19,45 @@ export default function Header() {
                         </li>
                     </NavLink>
 
-                    {/* Logged in */}
-                    <NavLink to="/character">
-                        <li>
-                            Character
-                            <div className={styles["border"]}> </div>
-                        </li>
-                    </NavLink>
+                    {isAuthenticated ?
+                        <>
+                            <NavLink to="/character">
+                                <li>
+                                    Character
+                                    <div className={styles["border"]}> </div>
+                                </li>
+                            </NavLink>
 
-                    <NavLink to="/create-story">
-                        <li>
-                            Create Story
-                            <div className={styles["border"]}> </div>
-                        </li>
-                    </NavLink>
+                            <NavLink to="/create-story">
+                                <li>
+                                    Create Story
+                                    <div className={styles["border"]}> </div>
+                                </li>
+                            </NavLink>
+                            <NavLink to="/logout">
+                                <li>
+                                    Logout
+                                    <div className={styles["border"]}> </div>
+                                </li>
+                            </NavLink>
+                        </>
+                        :
+                        <> <NavLink to="/login">
+                            <li>
+                                Login
+                                <div className={styles["border"]}> </div>
+                            </li>
+                        </NavLink>
 
-                    {/* Logged out */}
-                    <NavLink to="/login">
-                        <li>
-                            Login
-                            <div className={styles["border"]}> </div>
-                        </li>
-                    </NavLink>
+                            <NavLink to="/register">
+                                <li>
+                                    Register
+                                    <div className={styles["border"]}> </div>
+                                </li>
+                            </NavLink>
+                        </>
+                    }
 
-                    <NavLink to="/register">
-                        <li>
-                            Register
-                            <div className={styles["border"]}> </div>
-                        </li>
-                    </NavLink>
-
-                    <NavLink to="/logout">
-                        <li>
-                            Logout
-                            <div className={styles["border"]}> </div>
-                        </li>
-                    </NavLink>
 
                     {/* {About the site} */}
                     <NavLink to="/about">
@@ -62,7 +68,11 @@ export default function Header() {
                     </NavLink>
                 </ul>
 
+
             </nav>
+            <div className={styles["username"]}>
+                {username ? username : ``}
+            </div>
         </div>
     );
 }
