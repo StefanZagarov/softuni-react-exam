@@ -1,9 +1,10 @@
 import { useActionState } from "react";
 import { useRegister } from "../../api/authApi";
 import styles from "./Register.module.css";
+import { useNavigate } from "react-router";
 
 export default function Register() {
-
+    const navigate = useNavigate();
     // Register custom hook
     const register = useRegister();
     // TODO: Automatic login
@@ -17,9 +18,16 @@ export default function Register() {
             return;
         }
 
-        // Login function which will have redirect and state storage in it
-        const userData = await register(username, password);
-        console.log(userData);
+        try {
+            const userData = await register(username, password);
+            console.log(userData);
+
+            // Login function which will have redirect and state storage in it
+            navigate(`/login`);
+        } catch (error) {
+            console.log(error);
+        }
+
     }
 
     // Streamline the management of form state by updating a component's state based on the results of form actions
@@ -40,8 +48,9 @@ export default function Register() {
                 <label className={styles['label']} htmlFor="rePass">Repeat Password</label>
                 <input className={styles['input']} type="password" id="rePass" name="rePass" />
 
-                <button className={styles["btn"]} disabled={isPending} style={{ backgroundColor: isPending ? `lightgray` : `` }}>Submit</button>
+                <button className={styles["btn"]} disabled={isPending} style={{ backgroundColor: isPending ? `lightgray` : `` }}>Register</button>
             </form >
         </>
     );
 };
+
