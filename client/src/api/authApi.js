@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import request from "../utils/requester";
+import { useUserContext } from "../contexts/UserContext";
 
 const baseUrl = 'http://localhost:3030/users';
 // TODO: Check abort controllers
@@ -45,4 +46,32 @@ export function useLogin() {
     // }, []);
 
     return login;
+}
+
+export function useLogout() {
+    // Abort controller to avoid duplicate requests
+    // const abortRef = useRef(new AbortController());
+
+    const { accessToken, userLogoutHandler } = useUserContext();
+
+    useEffect(() => {
+        if (!accessToken) return;
+
+        const options = {
+            header: {
+                'X-Authorization': accessToken
+            }
+        };
+
+        request.get(`${baseUrl}/logout`, null, options)
+            .then(userLogoutHandler);
+    }, [accessToken, userLogoutHandler]);
+
+    // Trigger the abort on duplicated request
+    // useEffect(() => {
+    //     const abortController = abortRef.current;
+    //     return () => abortController.abort();
+    // }, []);
+
+    return { isLoggedOut: !!accessToken };
 }

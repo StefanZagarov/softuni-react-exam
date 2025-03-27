@@ -4,7 +4,7 @@ import { Link, NavLink } from "react-router";
 
 export default function Header() {
     const { username, isAuthenticated } = useAuth();
-    console.log(isAuthenticated);
+
     return (
         <div className={styles["nav-container"]}>
             <h2 className={styles["logo"]}> <Link to="/"> <p>The</p> Drunken Dragon</Link></h2>

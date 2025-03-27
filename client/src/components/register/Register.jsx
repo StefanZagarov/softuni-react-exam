@@ -1,9 +1,11 @@
 import { useActionState } from "react";
+import { useNavigate } from "react-router";
 import { useRegister } from "../../api/authApi";
 import styles from "./Register.module.css";
 import { useUserContext } from "../../contexts/UserContext";
 
 export default function Register() {
+    const navigator = useNavigate();
     // Register custom hook
     const register = useRegister();
 
@@ -22,14 +24,13 @@ export default function Register() {
             const userData = await register(username, password);
 
             userLoginHandler(userData);
+            navigator(`/catalog`);
         } catch (error) {
             console.log(error);
         }
-
     }
 
     // Streamline the management of form state by updating a component's state based on the results of form actions
-
     const [_, registerAction, isPending] = useActionState(registerHandler, { username: ``, password: ``, rePassword: `` });
 
     return (

@@ -11,6 +11,7 @@ import Logout from "./components/logout/Logout";
 import StoryDetails from "./components/story-details/StoryDetails";
 import About from "./components/about/About";
 import UserProvider from "./components/providers/UserProvider";
+import Spinner from "./components/spinner/Spinner";
 
 function App() {
   return (
