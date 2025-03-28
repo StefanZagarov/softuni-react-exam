@@ -14,9 +14,23 @@
   --main-color: rgb(192, 120, 4);
 }
 
+@font-face {
+  font-family: 'Dragon Hunter';
+  src: url('./fonts/DragonHunter-9Ynxj.woff') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Almendra';
+  src: url('./fonts/almendra-regular-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
-  /* temporary font family */
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Almendra', 'Arial';
+
   line-height: 1.5;
 
   background-color: grey;

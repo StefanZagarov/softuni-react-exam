@@ -11,7 +11,7 @@ export default function StoryItem() {
             <img className={styles["img"]} src="/public/chw8yd858a681.webp" alt="" />
 
             <div className={styles["story-desc"]}>
-                Description: Story desc aaaaaaaaaaaaaaaaaaaaas dawsd aws daws dawsdawsdawsdawsd ;ajn dop;g jpeorgijsepdorgjpsoedr gjnps;oedri jgdfg nsdporif gjsdfogkjn sopedriuhj jon asdawsdwasda aswd awsdawsdasd awsd as dawsd awsdawsd awsd aws
+                Story desc aaaaaaaaaaaaaaaaaaaaas dawsd aws daws dawsdawsdawsdawsd ;ajn dop;g jpeorgijsepdorgjpsoedr gjnps;oedri jgdfg nsdporif gjsdfogkjn sopedriuhj jon asdawsdwasda aswd awsdawsdasd awsd as dawsd awsdawsd awsd aws
             </div>
         </div>
     );

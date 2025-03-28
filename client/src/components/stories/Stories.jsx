@@ -18,6 +18,7 @@ export default function Stories() {
                 <StoryItem />
                 <StoryItem />
                 <StoryItem />
+                <StoryItem />
             </div>
         </>
     );

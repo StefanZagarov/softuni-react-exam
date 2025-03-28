@@ -24,10 +24,13 @@ export default function StoryCreate() {
 
             <form action={formActionHandler} className={styles["container"]}>
                 <label htmlFor="title" className={styles["label"]}>Story Title</label>
-                <input type="text" id="title" name="title" className={styles["title"]} />
+                <input type="text" id="title" name="title" className={styles["title"]} placeholder="What should this epic be refered as?" />
 
-                <label htmlFor="description" className={styles["label"]}>Description</label>
-                <textarea type="text" id="description" name="description" className={styles["description"]} />
+                <label htmlFor="summary" className={styles["label"]}>Short Summary</label>
+                <textarea type="text" id="summary" name="summary" className={styles["summary"]} placeholder="What is it about?" />
+
+                <label htmlFor="story" className={styles["label"]}>Story</label>
+                <textarea type="text" id="story" name="story" className={styles["story"]} placeholder="Tell your story" />
 
                 <button className={styles["btn"]}>Submit</button>
             </form>

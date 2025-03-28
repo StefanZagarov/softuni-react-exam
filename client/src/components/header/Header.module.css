@@ -17,7 +17,9 @@
 
     cursor: pointer;
 
-    width: 240px;
+    width: 275px;
+
+    font-family: "Dragon Hunter";
 }
 
 .nav-links {

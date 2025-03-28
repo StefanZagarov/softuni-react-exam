@@ -1327,7 +1327,10 @@
     var identity = "username";
     var protectedData = {
         users: {
-
+            "60f0cf0b-34b0-4abd-9769-8c42f830dffc": {
+                username: "QuantumCactus",
+                hashedPassword: "fac7060c3e17e6f151f247eacb2cd5ae80b8c36aedb8764e18a41bbdc16aa302"
+            }
         },
         sessions: {
         }

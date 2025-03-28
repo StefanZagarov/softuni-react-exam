@@ -42,7 +42,24 @@
     border: 2px solid var(--main-color);
 }
 
-.description {
+.summary {
+    outline: none;
+    border: none;
+    border-radius: 5px;
+
+    min-height: 100px;
+    resize: vertical;
+
+    padding: 0.5em 1em;
+
+    margin-bottom: 1em;
+}
+
+.summary:focus {
+    border: 2px solid var(--main-color);
+}
+
+.story {
     outline: none;
     border: none;
     border-radius: 5px;
@@ -53,7 +70,7 @@
     padding: 0.5em 1em;
 }
 
-.description:focus {
+.story:focus {
     border: 2px solid var(--main-color);
 }
 
