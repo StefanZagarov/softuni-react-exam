@@ -8,7 +8,7 @@
     padding: 1em;
 
     width: 500px;
-    max-height: 565px;
+    /* max-height: 565px; */
 
     background-color: rgb(168, 168, 168);
 }
@@ -17,11 +17,18 @@
     font-size: 24px;
     font-weight: bold;
 
-    margin: auto;
-
+    text-wrap: balance;
     text-align: center;
 
+    margin: auto;
+
     width: 60%;
+
+    transition: 0.4s;
+}
+
+a:hover>.title {
+    color: var(--main-color);
 }
 
 .title-border {

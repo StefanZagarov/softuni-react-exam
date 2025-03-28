@@ -1336,7 +1336,17 @@
         }
     };
     var seedData = {
-
+        stories: {
+            "490c6f1b-6228-4353-954e-0f61502adb3c": {
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                "image": "https://i.pinimg.com/736x/f8/c8/b4/f8c8b45f078896e2e4ab16293baaf7aa.jpg",
+                "title": "Shanties and Shadows: A Sailor’s Forest Fiasco",
+                "summary": "A seasoned sailor, more at home with the open sea than tangled roots, finds himself lost in a vast and bewildering forest. Just when he thinks all hope is lost, he stumbles upon a peculiar creature—a bushy-tailed, wide-eyed beast that speaks! The animal offers him a deal: teach it the rollicking tunes of the sea, and in return, it will guide him back to civilization. With a hearty laugh and a booming voice, the sailor strikes up a musical lesson like no other, discovering that friendship (and a well-sung shanty) might just be the best compass of all.",
+                "story": "I’ve been lost before. Usually in a storm, sometimes in a bottle of rum, but never—never—in a blasted forest. Trees ain’t got the decency to roll beneath yer feet like the good old sea, and the only waves here are made of scratchy branches slappin’ at my face.\n\nI was just about ready to accept my fate as a very confused landlubber when I heard a voice. A raspy, curious sort of voice, like a gull with a secret.\n\n“You look like a man who knows a tune,” it said.\n\nI turned ‘round sharp, and there it was—a creature I ain’t never seen before. Bushy tail, big yellow eyes, and the kinda grin that says, I know something you don’t.\n\n“Aye, I know a tune,” I said, squinting at the little beast. “But who’s askin’?”\n\nThe critter flicked its tail. “I am. I collect songs, you see. But I’ve never heard a sea shanty before.”\n\nNow, that caught me off guard. “Never?” I gasped. “Not even a single ‘yo-ho-ho’?”\n\nIt shook its head, and I near fell over in pity. A poor soul never rocked by a good shanty? A tragedy!\n\n“Well, friend, yer in luck,” I declared, hands on me hips. “For I am a sailor of grand repute and a singer of the finest sea shanties this side of the ocean!”\n\nThe creature’s eyes gleamed. “Then let’s make a deal. You teach me your songs, and I’ll show you the way out of this forest.”\n\nA fair trade if ever I heard one! So I straightened me back, puffed up me chest, and belted out a rousing verse of Drunken Sailor. The trees swayed, the wind seemed to hum along, and that odd little critter? Oh, it was hooked.\n\nBy the time I got to Roll the Old Chariot Along, the beast was stompin’ its feet and joinin’ in, a surprisingly fine tenor for a woodland mystery.\n\nAnd wouldn’t you believe it, true to its word, after a good hour of jolly singin’, it led me straight to the forest’s edge.\n\n“Keep singin’, sailor,” it said, flicking its tail as it turned back into the woods.\n\n“Aye, and you keep listenin’!” I called after it.\n\nWith a heart full of song and a grin as wide as the horizon, I stepped back onto the road, whistlin’ a tune as I made me way home. Never thought I’d find a mate in a forest, but the world’s full o’ surprises, ain’t it?",
+                "_createdOn": 1743165980635,
+                "_id": "490c6f1b-6228-4353-954e-0f61502adb3c"
+            },
+        }
     };
     var rules$1 = {
         users: {

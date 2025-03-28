@@ -24,7 +24,7 @@
     font-size: 30px;
 }
 
-.title {
+.input {
     outline: none;
     border: none;
     border-radius: 5px;
@@ -38,7 +38,7 @@
     margin-bottom: 2em;
 }
 
-.title:focus {
+.input:focus {
     border: 2px solid var(--main-color);
 }
 

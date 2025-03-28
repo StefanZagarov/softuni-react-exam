@@ -24,7 +24,7 @@ function App() {
         <Route path="/character" element={<Character />} />
         <Route path="/character/edit" element={<CharacterEdit />} />
         <Route path="/create-story" element={<StoryCreate />} />
-        <Route path="/story-details" element={<StoryDetails />} />
+        <Route path="/stories/:storyId/details" element={<StoryDetails />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/logout" element={<Logout />} />
