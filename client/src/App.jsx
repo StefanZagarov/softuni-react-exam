@@ -3,7 +3,6 @@ import Header from "./components/header/Header";
 import Home from "./components/home/Home";
 import Stories from "./components/stories/Stories";
 import Character from "./components/character/Character";
-import CharacterEdit from "./components/character-edit/CharacterEdit";
 import StoryCreate from "./components/story-create/StoryCreate";
 import Login from "./components/login/Login";
 import Register from "./components/register/Register";
@@ -12,6 +11,7 @@ import StoryDetails from "./components/story-details/StoryDetails";
 import About from "./components/about/About";
 import UserProvider from "./components/providers/UserProvider";
 import StoryEdit from "./components/story-edit/StoryEdit";
+import CharacterCreate from "./components/character-create/CharacterCreate";
 
 function App() {
   return (
@@ -22,7 +22,6 @@ function App() {
         <Route index element={<Home />} />
         <Route path="/stories" element={<Stories />} />
         <Route path="/character" element={<Character />} />
-        <Route path="/character/:userId/edit" element={<CharacterEdit />} />
         <Route path="/create-story" element={<StoryCreate />} />
         <Route path="/stories/:storyId/details" element={<StoryDetails />} />
         <Route path="/stories/:storyId/edit" element={<StoryEdit />} />

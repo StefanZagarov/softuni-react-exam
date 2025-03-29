@@ -12,7 +12,7 @@ export function useTipStory() {
             return storyData;
 
         } catch (error) {
-            console.log(error);
+            console.log(`Failed to tip story:`, error);
         }
     }
 

@@ -24,7 +24,7 @@ export default function StoryEdit() {
     }
     return (
         <>
-            <h2 className={styles[`header`]}>Create a Story</h2>
+            <h2 className={styles[`header`]}>Edit Story</h2>
 
             <form action={editActionHandler} className={styles["container"]}>
 
