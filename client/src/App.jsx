@@ -11,7 +11,7 @@ import Logout from "./components/logout/Logout";
 import StoryDetails from "./components/story-details/StoryDetails";
 import About from "./components/about/About";
 import UserProvider from "./components/providers/UserProvider";
-import Spinner from "./components/spinner/Spinner";
+import StoryEdit from "./components/story-edit/StoryEdit";
 
 function App() {
   return (
@@ -20,11 +20,12 @@ function App() {
 
       <Routes>
         <Route index element={<Home />} />
-        <Route path="/catalog" element={<Stories />} />
+        <Route path="/stories" element={<Stories />} />
         <Route path="/character" element={<Character />} />
-        <Route path="/character/edit" element={<CharacterEdit />} />
+        <Route path="/character/:userId/edit" element={<CharacterEdit />} />
         <Route path="/create-story" element={<StoryCreate />} />
         <Route path="/stories/:storyId/details" element={<StoryDetails />} />
+        <Route path="/stories/:storyId/edit" element={<StoryEdit />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/logout" element={<Logout />} />

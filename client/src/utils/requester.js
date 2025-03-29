@@ -25,7 +25,6 @@ async function request(method, url, data, options = {}) {
 
     try {
         const response = await fetch(url, options);
-
         // We get the content type of the header to make a check
         const responseContentType = response.headers.get("Content-Type");
         // If the response does not have a content type (in the case of a logout) we return to exit the logic and avoid breaking the code
@@ -33,6 +32,7 @@ async function request(method, url, data, options = {}) {
 
         // If we have a content type, then we return the data
         const result = await response.json();
+
         return result;
     } catch (error) {
         return error;

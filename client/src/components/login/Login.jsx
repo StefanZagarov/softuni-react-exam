@@ -25,7 +25,7 @@ export default function Login() {
         // Update the app with the user data
         userLoginHandler(data);
 
-        navigate(`/catalog`);
+        navigate(`/stories`);
     }
 
     const [_, loginAction, isPending] = useActionState(loginHandler, { username: ``, password: `` });

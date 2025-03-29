@@ -24,7 +24,7 @@ export default function Register() {
             const userData = await register(username, password);
 
             userLoginHandler(userData);
-            navigator(`/catalog`);
+            navigator(`/stories`);
         } catch (error) {
             console.log(error);
         }

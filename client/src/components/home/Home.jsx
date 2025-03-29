@@ -7,7 +7,7 @@ export default function Home() {
             <div className={styles["welcome-container"]}>
                 <h2 className={styles["home"]}>Welcome to <p className={styles["title"]}>The Drunken Dragon!</p></h2>
 
-                <Link to="/catalog" className={styles["btn"]}> Go Inside </Link>
+                <Link to="/stories" className={styles["btn"]}> Go Inside </Link>
             </div>
 
         </div>

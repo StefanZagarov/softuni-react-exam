@@ -34,7 +34,7 @@ export default function CharacterEdit() {
                 <label className={styles['label']} htmlFor="description">Description</label>
                 <textarea className={styles['description']} type="text" id="description" name="description" />
 
-                <button className={styles["btn"]}>Submit</button>
+                <button className={styles["btn"]}>Edit</button>
             </form>
         </>
     );

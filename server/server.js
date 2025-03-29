@@ -1330,6 +1330,10 @@
             "60f0cf0b-34b0-4abd-9769-8c42f830dffc": {
                 username: "QuantumCactus",
                 hashedPassword: "fac7060c3e17e6f151f247eacb2cd5ae80b8c36aedb8764e18a41bbdc16aa302"
+            },
+            "60f0cf0b-34b0-4abd-9769-8c42f830gsba": {
+                username: "FastTurtle",
+                hashedPassword: "fac7060c3e17e6f151f247eacb2cd5ae80b8c36aedb8764e18a41bbdc16aa302"
             }
         },
         sessions: {
@@ -1346,7 +1350,18 @@
                 "_createdOn": 1743165980635,
                 "_id": "490c6f1b-6228-4353-954e-0f61502adb3c"
             },
-        }
+            "d3b68b02-78cf-41d7-b6ee-fbe21d814691": {
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                "image": "https://images8.alphacoders.com/418/thumb-1920-418876.jpg",
+                "title": "Level Up, Stealth Out",
+                "summary": "A skilled thief sneaks into Whiterun's Jarl's vault to steal a soul gem, but things go awry when they level up mid-heist.",
+                "story": "Ah, the thrill of a good heist. There’s nothing quite like the rush of sneaking into the Jarl’s vault, bypassing magical wards, and swiping a precious soul gem right from under his nose. It’s practically art, really. Just me, my magic, and a quiet night in Whiterun. What could possibly go wrong?\n\nWell, plenty. But that’s not the point.\n\nI’d spent weeks preparing—researching, practicing, perfecting the art of sneaking past guards. And, of course, not getting caught. You’d think after all these years in Skyrim, people would realize that sneaking around is practically a lifestyle for some of us. But no, no. There I was, standing in front of the vault door, thinking I was absolutely untouchable. I pulled out my lockpicks, and with a few deft twists, I was inside.\n\nThere it was—the soul gem. Its purple glow practically sang to me. I could practically hear the Jarl’s money bags jingling in my ears as I reached out. But I was no rookie. I wasn’t going to just grab it and run. Oh no. First, a quick peek around. No guards, no magic traps. This was it. The perfect heist.\n\nAs I stood there, clutching the gem, I took a moment to admire my handiwork. All of a sudden, though, I felt… something strange. A strange warmth in the air. Then it hit me. Oh no. I had leveled up.\n\nYou see, I’ve been working hard on my stealth skills. I’ve sneaked through dungeons, past dragons, and even under the nose of an entire Thieves Guild—so needless to say, my sneak was leveling up faster than I could handle. But did I really need it right now? At this exact moment? I mean, come on. The whole point of this operation was to not draw attention.\n\nAnd that’s when I heard it.\n\n\"DA-DUM!\"\n\nThe sound of a level-up in Skyrim is basically a bullhorn announcing, “Hey, everyone! This sneaky mage just leveled up his stealth! Maybe he’s too good at sneaking!”\n\nThe second that magical sound rang in my ears, I swear to Oblivion, I heard the shuffle of guards' boots in the hallway. I froze. My heart was racing, my fingers clutching the soul gem like it was my last chance at a life of luxury.\n\nI did what any sensible person would do. I panicked. In a single, graceful motion, I shoved the soul gem into my satchel, tried to crouch into the shadows—and realized I was about as stealthy as a mudcrab with a tambourine.\n\n“Hey, did you hear that?” one of the guards outside the vault muttered.\n\nOh, great. Now I’m going to die for some shiny rock. My mind raced. Should I pull out a sword? No. Should I cast a spell? Absolutely not—no time for a fireball to the face.\n\nThen, like a gift from the gods themselves, I remembered the last vial of Invisibility Potion in my pocket. I’d been saving it for a real emergency, but hey, this counted, right?\n\nI popped the cork, drank it down faster than a Nord at a mead hall, and felt the world go blurry. Everything around me shimmered and blurred until I was—well, invisible.\n\nI couldn’t see the guards, but I could hear them. Footsteps. Whispering. Muttering.\n\n\"Probably just the wind…\" one of them said.\n\n\"Oh, sure,\" another replied. \"Because the wind always goes \"DA-DUM!\" when it moves.\"\n\nRight. So they weren’t completely idiots. That made me feel real confident. Still, invisible was invisible, and that was a good start.\n\nI crept forward, inching my way to the door. The stone walls of the vault creaked slightly under my weight—of course they did—but nothing alerted the guards. It felt like hours.\n\nFinally, the door was in front of me. I barely had time to breathe a sigh of relief before I heard the unmistakable sound of footsteps right behind me. Panic set in again. If I just stood there and did nothing, they’d find me. If I cast a spell now—well, you get the idea.\n\nThen, in a moment of sheer brilliance, I flung the soul gem out of my satchel.\n\nIt landed with a thud just beyond the door.\n\n\"Hey, what was that?\" a guard called.\n\nAnd like a true stealth master, I took the opportunity to scoot out the door, past the now distracted guards, and out into the cold night air. I kept moving, breathing hard, making sure to keep my steps light. The guards were none the wiser—busy searching for a soul gem that had conveniently rolled away from me.\n\nOnce I was safely out of Whiterun and into the wilds of Skyrim, I allowed myself a well-deserved chuckle.\n\n\"So,\" I said to myself, \"note to self: avoid leveling up in the middle of a heist.\"",
+                "_createdOn": 1743175743666,
+                "_id": "d3b68b02-78cf-41d7-b6ee-fbe21d814691"
+            }
+        },
+        likes: {},
+        characters: {},
     };
     var rules$1 = {
         users: {

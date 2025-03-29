@@ -3,9 +3,9 @@
 import { useUserContext } from "../contexts/UserContext";
 import request from "../utils/requester";
 
-
 export default function useAuth() {
     const userData = useUserContext();
+
     // Request wrapper that makes server requests that require an authenticated user - maybe separate it into its own function (maybe in utils)
     function requestWrapper(method, url, data, options = {}) {
         const userOptions = {

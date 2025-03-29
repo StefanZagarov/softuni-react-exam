@@ -12,7 +12,7 @@ export default function Header() {
             <nav className={styles["nav-links"]}>
 
                 <ul>
-                    <NavLink to="/catalog">
+                    <NavLink to="/stories" className={({ isActive }) => `${isActive ? styles["active"] : ``}`}>
                         <li>
                             Stories
                             <div className={styles["border"]}> </div>
@@ -21,14 +21,14 @@ export default function Header() {
 
                     {isAuthenticated ?
                         <>
-                            <NavLink to="/character">
+                            <NavLink to="/character" className={({ isActive }) => `${isActive ? styles["active"] : ``}`}>
                                 <li>
                                     Character
                                     <div className={styles["border"]}> </div>
                                 </li>
                             </NavLink>
 
-                            <NavLink to="/create-story">
+                            <NavLink to="/create-story" className={({ isActive }) => `${isActive ? styles["active"] : ``}`}>
                                 <li>
                                     Create Story
                                     <div className={styles["border"]}> </div>
@@ -42,14 +42,14 @@ export default function Header() {
                             </NavLink>
                         </>
                         :
-                        <> <NavLink to="/login">
+                        <> <NavLink to="/login" className={({ isActive }) => `${isActive ? styles["active"] : ``}`}>
                             <li>
                                 Login
                                 <div className={styles["border"]}> </div>
                             </li>
                         </NavLink>
 
-                            <NavLink to="/register">
+                            <NavLink to="/register" className={({ isActive }) => `${isActive ? styles["active"] : ``}`}>
                                 <li>
                                     Register
                                     <div className={styles["border"]}> </div>
@@ -58,7 +58,7 @@ export default function Header() {
                         </>
                     }
 
-                    <NavLink to="/about">
+                    <NavLink to="/about" className={({ isActive }) => `${isActive ? styles["active"] : ``}`}>
                         <li>
                             About
                             <div className={styles["border"]}> </div>
@@ -67,7 +67,6 @@ export default function Header() {
 
                     <div className={styles["username"]}>
                         {username ? username : ``}
-                        {/* <div className={styles["border"]}> </div> */}
                     </div>
                 </ul>
             </nav>

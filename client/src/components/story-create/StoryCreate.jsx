@@ -6,13 +6,13 @@ export default function StoryCreate() {
     const navigate = useNavigate();
     const createStory = useCreateStory();
 
-    async function formActionHandler(formData) {
+    async function createActionHandler(formData) {
         const storyData = Object.fromEntries(formData);
 
         try {
             await createStory(storyData);
 
-            navigate(`/catalog`);
+            navigate(`/stories`);
         } catch (error) {
             // TODO: Add toaster, check if the error is from the server or from the form requirements
             console.log(error);
@@ -22,7 +22,7 @@ export default function StoryCreate() {
         <>
             <h2 className={styles[`header`]}>Create a Story</h2>
 
-            <form action={formActionHandler} className={styles["container"]}>
+            <form action={createActionHandler} className={styles["container"]}>
 
                 <label htmlFor="image" className={styles["label"]}>Story Image</label>
                 <input type="text" id="image" name="image" className={styles["input"]} placeholder="Give the audience the full picture" />
