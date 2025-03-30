@@ -4,7 +4,7 @@ import { useCreateCharacter } from "../../api/characterApi";
 export default function CharacterCreate({ setCharacter }) {
     const createCharacter = useCreateCharacter();
 
-    async function formActionHandler(formData) {
+    async function createCharacterFormHandler(formData) {
         const characterData = Object.fromEntries(formData);
         const fullCharacterData = { ...characterData };
 
@@ -19,7 +19,7 @@ export default function CharacterCreate({ setCharacter }) {
         <>
             <h2 className={styles[`header`]}>Seems like you haven't introduced yourself yet</h2>
 
-            <form action={formActionHandler} className={styles["container"]}>
+            <form action={createCharacterFormHandler} className={styles["container"]}>
                 <label className={styles['label']} htmlFor="image">Character Image</label>
                 <input className={styles['input']} type="text" id="image" name="image" />
 

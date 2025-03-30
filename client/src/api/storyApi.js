@@ -37,20 +37,22 @@ export function useDeleteStory() {
 
 export function useGetAllStories() {
     const [stories, setStories] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        requester.get(baseUrl).then(setStories);
-    }, []);
+        requester.get(baseUrl).then(setStories).finally(() => setIsLoading(false));
+    }, [isLoading]);
 
-    return stories;
+    return { stories, isLoading };
 }
 
 export function useGetOneStory(storyId) {
     const [story, setStory] = useState({});
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        requester.get(`${baseUrl}/${storyId}`).then(setStory);
-    }, [storyId]);
+        requester.get(`${baseUrl}/${storyId}`).then(setStory).finally(() => setIsLoading(false));
+    }, [storyId, isLoading]);
 
-    return story;
+    return { story, isLoading };
 }

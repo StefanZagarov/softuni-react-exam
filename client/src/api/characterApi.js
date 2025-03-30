@@ -20,6 +20,10 @@ export function useCreateCharacter() {
 // The trigger happens on each setCharacter, it makaes useGetCharacter to return a new reference to getCharacter, thus causing infinite loop
 // The useCallback hook is designed specifically to solve this problem. It memoizes a function, meaning it returns the exact same function reference across multiple renders, as long as its own dependencies haven't changed
 
+// useCallback takes the function definition and a dependency array
+// With an empty dependency array([]), useCallback creates the function reference only once when the hook first runs
+// On subsequent renders, useCallback sees that its dependencies([]) haven't changed, so it returns the previously created, identical function reference
+
 // export function useGetCharacter() {
 //     async function getCharacter(userId) {
 //         const character = await requester.get(`${baseUrl}?where=_ownerId%3D%22${userId}%22`);
@@ -33,8 +37,8 @@ export function useGetCharacter() {
     const getCharacter = useCallback(async (userId) => {
 
         const character = await requester.get(`${baseUrl}?where=_ownerId%3D%22${userId}%22`);
-        console.log(character);
-        return character;
+
+        return character[0];
 
     }, []);
     return getCharacter;
@@ -43,8 +47,8 @@ export function useGetCharacter() {
 export function useEditCharacter() {
     const { request } = useAuth();
 
-    function editCharacter(userId, characterData) {
-        return request.put(`${baseUrl}/${userId}`, characterData);
+    function editCharacter(characterId, characterData) {
+        return request.put(`${baseUrl}/${characterId}`, characterData);
     }
 
     return editCharacter;

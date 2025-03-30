@@ -36,15 +36,28 @@
     margin-bottom: 2em;
 }
 
-.beers {
-    margin-left: auto;
+.story-info {
+    display: flex;
+    justify-content: space-between;
 
-    width: 37%;
+    width: 75%;
+
+    margin-bottom: 0.5em;
+}
+
+.created-by {
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.author {
+    font-weight: 500;
+}
+
+.beers {
     text-align: center;
 
     font-size: 24px;
-
-    margin-bottom: 0.5em;
 }
 
 .story-text {

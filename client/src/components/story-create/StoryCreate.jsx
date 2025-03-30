@@ -1,16 +1,18 @@
 import { useCreateStory } from "../../api/storyApi";
+import useAuth from "../../hooks/useAuth";
 import styles from "./StoryCreate.module.css";
 import { useNavigate } from "react-router";
 
 export default function StoryCreate() {
     const navigate = useNavigate();
     const createStory = useCreateStory();
+    const { username } = useAuth();
 
     async function createActionHandler(formData) {
         const storyData = Object.fromEntries(formData);
-
+        const fullStoryData = { ...storyData, username };
         try {
-            await createStory(storyData);
+            await createStory(fullStoryData);
 
             navigate(`/stories`);
         } catch (error) {

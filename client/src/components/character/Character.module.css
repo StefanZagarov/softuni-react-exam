@@ -4,8 +4,9 @@
     border: 1px solid black;
     border-radius: 25px;
 
-    width: 60%;
-    min-width: 900px;
+    width: fit-content;
+    max-width: 90%;
+    min-width: 600px;
 
     margin: 2em auto;
 
@@ -64,7 +65,7 @@
     font-size: 50px;
     font-weight: 600;
 
-    max-width: 800px;
+    max-width: 400px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: wrap;
@@ -74,8 +75,11 @@
     border: 1px solid black;
     border-radius: 25px;
 
-    width: 60%;
-    min-width: 900px;
+    width: fit-content;
+    max-width: 90%;
+    min-width: 600px;
+
+    max-width: 90%;
 
     margin: 3em auto;
 
@@ -85,6 +89,8 @@
 .description {
     margin-top: 1em;
     font-size: 40px;
+
+    max-width: 885px;
 }
 
 .img {

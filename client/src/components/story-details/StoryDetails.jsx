@@ -4,11 +4,12 @@ import { useDeleteStory, useGetOneStory } from '../../api/storyApi';
 import { useGetStoryTips, useHasUserTipped, useTipStory } from '../../api/tipStoryApi';
 import useAuth from '../../hooks/useAuth';
 import { useEffect, useState } from 'react';
+import Spinner from '../spinner/Spinner';
 
 export default function StoryDetails() {
     const navigate = useNavigate();
     const { storyId } = useParams();
-    const { _ownerId, image, title, story, _id } = useGetOneStory(storyId);
+    const { story, isLoading } = useGetOneStory(storyId);
     const deleteStory = useDeleteStory();
     const { userId } = useAuth();
     const tipStory = useTipStory();
@@ -18,7 +19,7 @@ export default function StoryDetails() {
     const [hasTipped, setHasTipped] = useState(false);
     const hasUserTipped = useHasUserTipped();
 
-    const isOwner = userId ? userId === _ownerId : false;
+    const isOwner = userId ? userId === story._ownerId : false;
 
     useEffect(() => {
         hasUserTipped(userId, storyId).then(setHasTipped);
@@ -50,29 +51,38 @@ export default function StoryDetails() {
     }
 
     return (
-        <div className={styles["container"]}>
-            {isOwner &&
-                <div className={styles["owner-buttons"]}>
-                    <Link to={`/stories/${_id}/edit`} className={styles["edit-btn"]}>Edit Story</Link>
-                    <button className={styles["delete-btn"]} onClick={onDelete}>Delete</button>
-                </div>}
+        <>
+            {isLoading ? <Spinner /> :
+                <div className={styles["container"]}>
+                    {isOwner &&
+                        <div className={styles["owner-buttons"]}>
+                            <Link to={`/stories/${story._id}/edit`} className={styles["edit-btn"]}>Edit Story</Link>
+                            <button className={styles["delete-btn"]} onClick={onDelete}>Delete</button>
+                        </div>}
 
-            <h2 className={styles["title"]}>{title}</h2>
-            <img className={styles["img"]} src={image} alt="" />
-            <p className={styles["beers"]}>Beer tips: {tips}</p>
-            <div className={styles["title-border"]}></div>
+                    <h2 className={styles["title"]}>{story.title}</h2>
+                    <img className={styles["img"]} src={story.image} alt="" />
+                    <div className={styles["story-info"]}>
+                        <div className={styles["created-by"]}> <span className={styles["author"]}>Author:</span> {story.username}</div>
+                        <p className={styles["beers"]}>Beer tips: {tips}</p>
+                    </div>
 
-            <div className={styles["story-text"]}>
-                {story}
-            </div>
+                    <div className={styles["title-border"]}></div>
 
-            {userId ? !isOwner &&
-                <div className={styles["beer-tips"]}>
-                    {hasTipped ? <dvi className={styles["tipped"]}>Tipped!</dvi> : <button className={styles["beer-btn"]} onClick={onTipBeer}>Tip Beer</button>}
+                    <div className={styles["story-text"]}>
+                        {story.story}
+                    </div>
 
+                    {userId ? !isOwner &&
+                        <div className={styles["beer-tips"]}>
+                            {hasTipped ? <div className={styles["tipped"]}>Tipped!</div> : <button className={styles["beer-btn"]} onClick={onTipBeer}>Tip Beer</button>}
+
+                        </div>
+                        : <div className={styles["info"]}>Login to tip beer</div>}
+                    <p className={styles["beers-footer"]}>Beer tips: {tips}</p>
                 </div>
-                : <div className={styles["info"]}>Login to tip beer</div>}
-            <p className={styles["beers-footer"]}>Beer tips: {tips}</p>
-        </div>
+            }
+        </>
     );
+
 }

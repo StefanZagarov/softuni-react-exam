@@ -40,7 +40,7 @@
 }
 
 .input:focus {
-    border: 2px solid var(--main-color);
+    outline: 2px solid var(--main-color);
 }
 
 .summary {
@@ -57,7 +57,7 @@
 }
 
 .summary:focus {
-    border: 2px solid var(--main-color);
+    outline: 2px solid var(--main-color);
 }
 
 .story {
@@ -72,7 +72,7 @@
 }
 
 .story:focus {
-    border: 2px solid var(--main-color);
+    outline: 2px solid var(--main-color);
 }
 
 .btn {

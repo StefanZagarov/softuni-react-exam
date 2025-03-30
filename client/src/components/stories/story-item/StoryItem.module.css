@@ -24,7 +24,7 @@
 
     width: 60%;
 
-    transition: all 0.3s ease-out;
+    transition: all 0.2s ease-out;
 }
 
 a:hover>.title {
@@ -59,4 +59,14 @@ a:hover>.title {
     width: 44ch;
 
     margin: auto;
+}
+
+.author {
+    font-weight: 100;
+}
+
+.created-by {
+    margin-top: 1em;
+
+    font-weight: 900;
 }
