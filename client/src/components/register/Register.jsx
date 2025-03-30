@@ -1,55 +1,222 @@
-import { useActionState } from "react";
+import { useState, useRef } from "react";
 import { useNavigate } from "react-router";
 import { useRegister } from "../../api/authApi";
 import styles from "./Register.module.css";
 import { useUserContext } from "../../contexts/UserContext";
 
 export default function Register() {
-    const navigator = useNavigate();
-    // Register custom hook
+    const navigate = useNavigate();
     const register = useRegister();
-
     const { userLoginHandler } = useUserContext();
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
-    async function registerHandler(previousState, formData) {
-        const { username, password, rePass } = Object.fromEntries(formData);
+    const usernameRef = useRef(null);
+    const passwordRef = useRef(null);
+    const rePassRef = useRef(null);
+    const formRef = useRef(null); // Ref for the form element itself (for resetting)
 
-        if (password !== rePass) {
-            // TODO: Add a toaster
-            console.log(`Passwords do not match!`);
+    const [errors, setErrors] = useState({
+        username: '',
+        password: '',
+        rePass: ''
+    });
+
+
+    function handleChange(e) {
+        const { name, value } = e.target;
+
+        setErrors(prevErrors => {
+            const newErrors = { ...prevErrors };
+            const trimmedValue = value.trim();
+
+            switch (name) {
+                case `username`: {
+                    if (!trimmedValue) {
+                        newErrors.username = 'Username is required';
+                    } else if (trimmedValue.length < 3) {
+                        newErrors.username = 'Username must be at least 3 characters';
+                    } else if (trimmedValue.length > 16) {
+                        newErrors.username = `Username can't be more than 16 characters long`;
+                    } else {
+                        newErrors.username = '';
+                    }
+                    break;
+                }
+
+                case `password`: {
+                    if (!value) {
+                        newErrors.password = 'Password is required';
+                    } else if (value.length < 5) {
+                        newErrors.password = 'Password must be at least 5 characters';
+                    } else if (value.length > 20) {
+                        newErrors.password = `Password can't be more than 20 characters long`;
+                    } else {
+                        newErrors.password = '';
+                    }
+
+                    const currentRePass = rePassRef.current?.value || '';
+                    if (currentRePass && value !== currentRePass) {
+                        newErrors.rePass = 'Passwords do not match';
+                    } else if (currentRePass && newErrors.password === '') {
+                        if (prevErrors.rePass === 'Passwords do not match') {
+                            newErrors.rePass = '';
+                        }
+                    }
+                    break;
+                }
+
+                case `rePass`: {
+                    if (!value) {
+                        newErrors.rePass = 'Please repeat the password';
+                    } else {
+                        newErrors.rePass = '';
+                    }
+                    break;
+                }
+
+                default:
+                    break;
+            }
+
+            return newErrors;
+        });
+    };
+
+    const validateOnSubmit = (username, password, rePass) => {
+        const validationErrors = { username: '', password: '', rePass: '' };
+        let isValid = true;
+
+        if (!username) {
+            validationErrors.username = 'Username is required';
+            isValid = false;
+        } else if (username.length < 3) {
+            validationErrors.username = 'Username must be at least 3 characters';
+            isValid = false;
+        } else if (username.length > 16) {
+            validationErrors.username = `Username can't be more than 16 characters long`;
+            isValid = false;
+        }
+
+        if (!password) {
+            validationErrors.password = 'Password is required';
+            isValid = false;
+        } else if (password.length < 6) {
+            validationErrors.password = 'Password must be at least 6 characters';
+            isValid = false;
+        } else if (password.length > 20) {
+            validationErrors.password = `Password can't be more than 20 characters long`;
+            isValid = false;
+        }
+
+        if (!rePass) {
+            validationErrors.rePass = 'Please repeat the password';
+            isValid = false;
+        } else if (password && password !== rePass) {
+            validationErrors.rePass = 'Passwords do not match';
+            isValid = false;
+        }
+
+        setErrors(validationErrors);
+        return isValid;
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        const username = usernameRef.current?.value.trim() || '';
+        const password = passwordRef.current?.value.trim() || '';
+        const rePass = rePassRef.current?.value.trim() || '';
+
+        const isValid = validateOnSubmit(username, password, rePass);
+
+        if (!isValid) {
             return;
         }
+
+        setIsSubmitting(true);
+        // Clear errors
+        setErrors(prev => ({ ...prev }));
 
         try {
             const userData = await register(username, password);
 
-            userLoginHandler(userData);
-            navigator(`/stories`);
-        } catch (error) {
-            console.log(error);
-        }
-    }
+            if (userData.code === 409) {
+                // TODO: Add toaster - A user with the same username already exists
+                console.log(`A user with the same username already exists`);
+                passwordRef.current.value = ``;
+                rePassRef.current.value = ``;
 
-    // Streamline the management of form state by updating a component's state based on the results of form actions
-    const [_, registerAction, isPending] = useActionState(registerHandler, { username: ``, password: ``, rePassword: `` });
+                return;
+            }
+
+            userLoginHandler(userData);
+            navigate(`/stories`);
+            return;
+
+        } catch (error) {
+            console.error("Registration error:", error);
+            // TODO: Add toaster -  form: error.message || "An error occurred during registration."
+            setErrors(prev => ({ ...prev }));
+            if (formRef.current) {
+                formRef.current.reset();
+            }
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
 
     return (
         <>
             <h2 className={styles[`header`]}>Register</h2>
 
-            <form className={styles["container"]} action={registerAction} >
-                <label className={styles['label']} htmlFor="username">Username</label>
-                <input className={styles['input']} type="text" id="username" name="username" />
+            <form ref={formRef} onSubmit={handleSubmit} className={styles["container"]} noValidate>
 
-                <label className={styles['label']} htmlFor="password">Password</label>
-                <input className={styles['input']} type="password" id="password" name="password" />
+                {errors.form && (
+                    <p className={styles["error-server"]}>{errors.form}</p>
+                )}
 
-                <label className={styles['label']} htmlFor="rePass">Repeat Password</label>
-                <input className={styles['input']} type="password" id="rePass" name="rePass" />
+                <div className={styles["input-group"]}>
+                    <label className={styles['label']} htmlFor="username">Username</label>
+                    <input
+                        ref={usernameRef}
+                        onChange={handleChange}
+                        className={`${styles['input']} ${errors.username ? styles['input-error'] : ''}`}
+                        type="text" id="username" name="username" required
+                    />
+                    <div><p id="username-error" className={styles["error"]}>{errors.username}</p></div>
+                </div>
 
-                <button className={styles["btn"]} disabled={isPending} style={{ backgroundColor: isPending ? `lightgray` : `` }}>Register</button>
+                <div className={styles["input-group"]}>
+                    <label className={styles['label']} htmlFor="password">Password</label>
+                    <input
+                        ref={passwordRef}
+                        onChange={handleChange}
+                        className={`${styles['input']} ${errors.password ? styles['input-error'] : ''}`}
+                        type="password" id="password" name="password" required
+                    />
+                    <div><p id="password-error" className={styles["error"]}>{errors.password}</p></div>
+                </div>
+
+                <div className={styles["input-group"]}>
+                    <label className={styles['label']} htmlFor="rePass">Repeat Password</label>
+                    <input
+                        ref={rePassRef}
+                        onChange={handleChange}
+                        className={`${styles['input']} ${errors.rePass ? styles['input-error'] : ''}`}
+                        type="password" id="rePass" name="rePass" required
+                    />
+                    <div><p id="repass-error" className={styles["error"]}>{errors.rePass}</p></div>
+                </div>
+
+                <button
+                    type="submit"
+                    className={styles["btn"]}
+                    disabled={isSubmitting}
+                    style={{ backgroundColor: isSubmitting ? `lightgray` : `` }}
+                >
+                    {isSubmitting ? 'Registering...' : 'Register'}
+                </button>
             </form >
         </>
     );
 };
-
