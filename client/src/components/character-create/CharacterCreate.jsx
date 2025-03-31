@@ -256,7 +256,7 @@ export default function CharacterCreate({ setCharacter }) {
                         value={formData.name}
                         onChange={handleChange}
                     />
-                    <div><p id="image-error" className={styles["error"]}>{errors.name}</p></div>
+                    <div><p id="name-error" className={styles["error"]}>{errors.name}</p></div>
                 </div>
 
                 <div className={styles["input-group"]}>
@@ -268,7 +268,7 @@ export default function CharacterCreate({ setCharacter }) {
                         value={formData.role}
                         onChange={handleChange}
                     />
-                    <div><p id="image-error" className={styles["error"]}>{errors.role}</p></div>
+                    <div><p id="role-error" className={styles["error"]}>{errors.role}</p></div>
                 </div>
 
                 <div className={styles["input-group"]}>
@@ -280,7 +280,7 @@ export default function CharacterCreate({ setCharacter }) {
                         value={formData.species}
                         onChange={handleChange}
                     />
-                    <div><p id="image-error" className={styles["error"]}>{errors.species}</p></div>
+                    <div><p id="species-error" className={styles["error"]}>{errors.species}</p></div>
                 </div>
 
                 <div className={styles["input-group"]}>
@@ -292,7 +292,7 @@ export default function CharacterCreate({ setCharacter }) {
                         value={formData.alignment}
                         onChange={handleChange}
                     />
-                    <div><p id="image-error" className={styles["error"]}>{errors.alignment}</p></div>
+                    <div><p id="alignment-error" className={styles["error"]}>{errors.alignment}</p></div>
                 </div>
 
                 <div className={styles["input-group"]}>
@@ -304,7 +304,7 @@ export default function CharacterCreate({ setCharacter }) {
                         value={formData.description}
                         onChange={handleChange}
                     />
-                    <div><p id="image-error" className={styles["error"]}>{errors.description}</p></div>
+                    <div><p id="description-error" className={styles["error"]}>{errors.description}</p></div>
                 </div>
 
                 <button className={styles["btn"]} style={{ backgroundColor: isSubmitting ? `lightgray` : `` }}>{isSubmitting ? `Creating...` : `Create`}</button>

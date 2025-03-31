@@ -18,7 +18,6 @@
     justify-content: center;
     font-size: 36px;
     margin-bottom: 2em;
-    /* color: var(--main-color); */
 }
 
 .label {
@@ -34,9 +33,7 @@
 
     font-size: 24px;
 
-    padding: 0 1em;
-
-    margin-bottom: 2em;
+    padding: 0 0.5em;
 }
 
 .input:focus {
@@ -52,8 +49,6 @@
     resize: vertical;
 
     padding: 0.5em 1em;
-
-    margin-bottom: 1em;
 }
 
 .summary:focus {
@@ -98,4 +93,18 @@
 
 .btn:hover {
     background-color: rgb(231, 143, 0);
+}
+
+.input-group {
+    margin-bottom: 2em;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.error {
+    color: red;
+    position: absolute;
+
+    margin-top: 0.3em;
 }

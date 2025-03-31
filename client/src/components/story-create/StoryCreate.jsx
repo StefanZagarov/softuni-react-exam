@@ -109,6 +109,7 @@ export default function StoryCreate() {
         }
         if (!story) {
             validationErrors.story = `Story is required`;
+            isValid = false;
         }
 
         if (!validationErrors.title && errors.title) {

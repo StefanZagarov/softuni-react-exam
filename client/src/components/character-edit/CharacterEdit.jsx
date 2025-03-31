@@ -261,7 +261,7 @@ export default function CharacterEdit({ characterId, character, updateCharacter 
                             value={formData.name}
                             onChange={handleChange}
                         ></input>
-                        <div><p id="image-error" className={styles["error"]}>{errors.name}</p></div>
+                        <div><p id="name-error" className={styles["error"]}>{errors.name}</p></div>
                     </div>
 
                     <div className={styles["field"]}>
@@ -272,7 +272,7 @@ export default function CharacterEdit({ characterId, character, updateCharacter 
                             value={formData.role}
                             onChange={handleChange}
                         ></input>
-                        <div><p id="image-error" className={styles["error"]}>{errors.role}</p></div>
+                        <div><p id="role-error" className={styles["error"]}>{errors.role}</p></div>
                     </div>
 
                     <div className={styles["field"]}>
@@ -283,7 +283,7 @@ export default function CharacterEdit({ characterId, character, updateCharacter 
                             value={formData.species}
                             onChange={handleChange}
                         ></input>
-                        <div><p id="image-error" className={styles["error"]}>{errors.species}</p></div>
+                        <div><p id="species-error" className={styles["error"]}>{errors.species}</p></div>
                     </div>
 
                     <div className={styles["field"]}>
@@ -294,7 +294,7 @@ export default function CharacterEdit({ characterId, character, updateCharacter 
                             value={formData.alignment}
                             onChange={handleChange}
                         ></input>
-                        <div><p id="image-error" className={styles["error"]}>{errors.alignment}</p></div>
+                        <div><p id="alignment-error" className={styles["error"]}>{errors.alignment}</p></div>
                     </div>
 
                     <div className={styles["description-container"]}>
@@ -305,7 +305,7 @@ export default function CharacterEdit({ characterId, character, updateCharacter 
                             value={formData.description}
                             onChange={handleChange}
                         ></textarea>
-                        <div><p id="image-error" className={styles["error"]}>{errors.description}</p></div>
+                        <div><p id="description-error" className={styles["error"]}>{errors.description}</p></div>
                     </div>
                 </aside>
             </form>
