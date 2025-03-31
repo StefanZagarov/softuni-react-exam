@@ -5,7 +5,7 @@ export default function CharacterEdit({ characterId, character, updateCharacter 
 
   const editCharacter = useEditCharacter();
 
-  async function editCharacterFormHandler(formData) {
+  async function handleCharacterEdit(formData) {
     const characterData = Object.fromEntries(formData);
 
     try {
@@ -24,7 +24,7 @@ export default function CharacterEdit({ characterId, character, updateCharacter 
         <button form="char-edit-form" className={styles["edit-btn"]}> Finish Edit </button>
       </div>
 
-      <form id="char-edit-form" action={editCharacterFormHandler} className={styles["container"]}>
+      <form id="char-edit-form" action={handleCharacterEdit} className={styles["container"]}>
         <div></div>
         <main className={styles["main"]}>
           <img className={styles["img"]} src={character.image} alt="" />

@@ -27,6 +27,7 @@
 }
 
 .edit-btn {
+    cursor: pointer;
     display: flex;
     align-items: center;
     font-size: 20px;

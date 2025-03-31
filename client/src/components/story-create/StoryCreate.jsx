@@ -17,6 +17,7 @@ export default function StoryCreate() {
     });
 
     const [errors, setErrors] = useState({
+        image: ``,
         title: '',
         summary: '',
         story: '',
