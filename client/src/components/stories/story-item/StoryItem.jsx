@@ -8,7 +8,7 @@ export default function StoryItem({ _id, image, title, summary, username }) {
             <Link to={`/stories/${_id}/details`}><h2 className={styles["title"]}>{title}</h2></Link>
             <div className={styles["title-border"]}></div>
 
-            <img className={styles["img"]} src={image} alt="" />
+            <img className={styles["img"]} src={image ? image : "../../../../public/chw8yd858a681.webp"} alt="" />
 
             <div className={styles["story-desc"]}>
                 {summary}

@@ -63,6 +63,7 @@
 .story-text {
     font-size: 24px;
     white-space: pre-wrap;
+    overflow-wrap: anywhere;
 }
 
 .beer-btn {
@@ -86,7 +87,7 @@
 }
 
 .beer-btn:hover {
-    background-color: white;
+    background-color: rgb(231, 143, 0);
 }
 
 .edit-btn {
@@ -110,7 +111,7 @@
 }
 
 .edit-btn:hover {
-    background-color: white;
+    background-color: rgb(231, 143, 0);
 }
 
 .delete-btn {
@@ -135,7 +136,7 @@
 }
 
 .delete-btn:hover {
-    background-color: white;
+    background-color: rgb(231, 143, 0);
 }
 
 .info {

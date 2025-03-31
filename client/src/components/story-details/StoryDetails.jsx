@@ -45,7 +45,16 @@ export default function StoryDetails() {
     }
 
     async function onDelete() {
-        await deleteStory(storyId);
+        const hasConfirmed = confirm("Are you sure you want to delete this story?");
+
+        if (!hasConfirmed) return;
+
+        try {
+            await deleteStory(storyId);
+        } catch (error) {
+            // TODO: Add toaster
+            console.log(`Could not delete story:`, error);
+        }
 
         navigate(`/stories`);
     }
@@ -61,7 +70,7 @@ export default function StoryDetails() {
                         </div>}
 
                     <h2 className={styles["title"]}>{story.title}</h2>
-                    <img className={styles["img"]} src={story.image} alt="" />
+                    <img className={styles["img"]} src={story.image ? story.image : "../../../public/chw8yd858a681.webp"} alt="" />
                     <div className={styles["story-info"]}>
                         <div className={styles["created-by"]}> <span className={styles["author"]}>Author:</span> {story.username}</div>
                         <p className={styles["beers"]}>Beer tips: {tips}</p>

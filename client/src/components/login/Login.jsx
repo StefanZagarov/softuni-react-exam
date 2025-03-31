@@ -64,7 +64,7 @@ export default function Login() {
         });
     };
 
-    const validateOnSubmit = () => {
+    function validateOnSubmit() {
         const validationErrors = { username: '', password: '' };
         let isValid = true;
 
@@ -90,14 +90,12 @@ export default function Login() {
         return isValid;
     };
 
-    const handleSubmit = async (event) => {
+    async function handleSubmit(event) {
         event.preventDefault();
 
         const isValid = validateOnSubmit();
 
-        if (!isValid) {
-            return;
-        }
+        if (!isValid) return;
 
         setIsSubmitting(true);
         // Clear errors
@@ -135,8 +133,12 @@ export default function Login() {
                     <label className={styles['label']} htmlFor="username">Username</label>
                     <input
                         className={`${styles['input']} ${errors.username ? styles['input-error'] : ''}`}
-                        type="text" id="username" name="username" required
-                        value={formData.username} onChange={handleChange}
+                        type="text"
+                        id="username"
+                        name="username"
+                        required
+                        value={formData.username}
+                        onChange={handleChange}
                     />
                     <div><p id="username-error" className={styles["error"]}>{errors.username}</p></div>
                 </div>
@@ -145,8 +147,12 @@ export default function Login() {
                     <label className={styles['label']} htmlFor="password">Password</label>
                     <input
                         className={`${styles['input']} ${errors.password ? styles['input-error'] : ''}`}
-                        type="password" id="password" name="password" required
-                        value={formData.password} onChange={handleChange}
+                        type="password"
+                        id="password"
+                        name="password"
+                        required
+                        value={formData.password}
+                        onChange={handleChange}
                     />
                     <div><p id="password-error" className={styles["error"]}>{errors.password}</p></div>
                 </div>

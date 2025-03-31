@@ -82,7 +82,7 @@ export default function Register() {
         });
     };
 
-    const validateOnSubmit = (username, password, rePass) => {
+    function validateOnSubmit(username, password, rePass) {
         const validationErrors = { username: '', password: '', rePass: '' };
         let isValid = true;
 
@@ -120,7 +120,7 @@ export default function Register() {
         return isValid;
     };
 
-    const handleSubmit = async (event) => {
+    async function handleSubmit(event) {
         event.preventDefault();
 
         const username = usernameRef.current?.value.trim() || '';
@@ -130,6 +130,8 @@ export default function Register() {
         const isValid = validateOnSubmit(username, password, rePass);
 
         if (!isValid) {
+            passwordRef.current.value = ``;
+            rePassRef.current.value = ``;
             return;
         }
 
