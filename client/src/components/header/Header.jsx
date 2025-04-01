@@ -21,7 +21,7 @@ export default function Header() {
 
                     {isAuthenticated ?
                         <>
-                            <NavLink to="/character" className={({ isActive }) => `${isActive ? styles["active"] : ``}`}>
+                            <NavLink to={`/character`} className={({ isActive }) => `${isActive ? styles["active"] : ``}`}>
                                 <li>
                                     Character
                                     <div className={styles["border"]}> </div>

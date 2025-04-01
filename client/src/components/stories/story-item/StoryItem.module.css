@@ -8,7 +8,6 @@
     padding: 1em;
 
     width: 500px;
-    /* max-height: 565px; */
 
     background-color: rgb(168, 168, 168);
 }
@@ -71,4 +70,12 @@ a:hover>.title {
     margin-top: 1em;
 
     font-weight: 900;
+}
+
+.user {
+    transition: all 0.2s ease-out;
+}
+
+.created-by:hover .user {
+    color: var(--main-color)
 }

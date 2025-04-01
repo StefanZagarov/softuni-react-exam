@@ -36,6 +36,7 @@ function App() {
           <Route path="/stories/:storyId/edit" element={<StoryEdit />} />
           <Route path="/logout" element={<Logout />} />
         </Route>
+        <Route path="/character/:userId" element={<Character />} />
 
         <Route element={<UserGuard />}>
           <Route path="/login" element={<Login />} />

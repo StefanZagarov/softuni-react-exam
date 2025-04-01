@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useGetAllStories } from "../../api/storyApi";
 import Spinner from "../spinner/Spinner";
 import styles from "./Stories.module.css";
@@ -6,14 +5,6 @@ import StoryItem from './story-item/StoryItem';
 
 export default function Stories() {
     const { stories, isLoading } = useGetAllStories();
-
-    // Cleanup example
-    useEffect(() => {
-        console.log(`Mounting`);
-        return () => {
-            console.log(`Unmount cleanup`);
-        };
-    }, []);
 
     return (
         <>

@@ -1,7 +1,7 @@
 import styles from './StoryItem.module.css';
 import { Link } from "react-router";
 
-export default function StoryItem({ _id, image, title, summary, username }) {
+export default function StoryItem({ _id, image, title, summary, username, _ownerId }) {
     return (
         <div className={styles["story-card"]}>
 
@@ -13,7 +13,7 @@ export default function StoryItem({ _id, image, title, summary, username }) {
             <div className={styles["story-desc"]}>
                 {summary}
             </div>
-            <div className={styles["created-by"]}> <span className={styles["author"]}>Author:</span> {username}</div>
+            <Link to={`/character/${_ownerId}`} className={styles["created-by"]}> <span className={styles["author"]}>Author:</span><span className={styles["user"]}>{username}</span> </Link>
         </div>
     );
 }

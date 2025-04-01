@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useEditCharacter } from "../../api/characterApi";
+import { useEditCharacter } from "../../../api/characterApi";
 import styles from "./CharacterEdit.module.css";
 import toast from "react-hot-toast";
 
@@ -16,6 +16,17 @@ export default function CharacterEdit({ characterId, character, updateCharacter 
             color: `#FFFFFF`,
             backgroundColor: `#E78F00`,
             border: `2px solid red`
+        }
+    };
+
+    const successToastOptions = {
+        position: `top-right`,
+        className: styles["toast"],
+
+        style: {
+            color: `#FFFFFF`,
+            backgroundColor: `#E78F00`,
+            border: `2px solid green`
         }
     };
 
@@ -231,7 +242,7 @@ export default function CharacterEdit({ characterId, character, updateCharacter 
         };
         try {
             const characterDataResult = await editCharacter(characterId, characterData);
-
+            toast.success(`Character updated`, successToastOptions);
             updateCharacter(characterDataResult);
         } catch (error) {
             console.log(`Failed to edit character:`, error);

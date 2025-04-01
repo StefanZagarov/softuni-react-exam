@@ -1363,7 +1363,19 @@
             }
         },
         likes: {},
-        characters: {},
+        characters: {
+            "350af851-de6c-4ebe-b357-83eb4fa4e03e": {
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                "image": "https://preview.redd.it/z1437s6ur2151.png?auto=webp&s=9e95b53c0855ecc1a5c8ff5af174fe46f9c41f21",
+                "name": "Dandelion",
+                "role": "Bard",
+                "species": "Human",
+                "alignment": "Chaotic Neutral",
+                "description": "Ah, where do I begin? My name is Julian Alfred Pankratz, Viscount de Lettenhove—though most know me simply as Dandelion, the finest bard the Continent has ever had the pleasure of listening to. Poet, minstrel, and chronicler of legends, I have traveled far and wide, gracing courts and taverns alike with my wit, charm, and unmatched musical talents.\n\nWith a lute in my hands and a song on my lips, I bring stories to life—tales of heroes, monsters, and, most importantly, love. Of course, my most famous muse is none other than Geralt of Rivia, the White Wolf himself. Without me, who would immortalize his deeds? He may swing a sword well enough, but it is I who ensures he is remembered, adored, and, occasionally, feared.\n\nSome call me a womanizer, but can I be blamed for appreciating beauty? Life is too short to waste on melancholy and silence. My flamboyant attire—vivid doublets, plumed hats, and the finest perfumes—reflects my personality: vibrant, irresistible, and utterly unforgettable.\n\nYes, I have had my fair share of trouble—duels, debts, and the occasional imprisonment—but what is life without a bit of excitement? Besides, my silver tongue has saved me more times than any blade ever could.\n\nSo, my dear listener, if you wish to hear of grand adventures, forbidden romances, and the exploits of the greatest bard to ever live, then lend me your ear, buy me a drink, and prepare to be enchanted.",
+                "_createdOn": 1743523781271,
+                "_id": "350af851-de6c-4ebe-b357-83eb4fa4e03e"
+            }
+        },
     };
     var rules$1 = {
         users: {

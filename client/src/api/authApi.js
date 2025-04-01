@@ -23,7 +23,6 @@ export function useLogin() {
         return await request.post(
             `${baseUrl}/login`,
             { username, password },
-            // { signal: abortRef.current.signal }
         );
     }
 

@@ -4,20 +4,25 @@ import { useEffect, useState } from "react";
 import { useGetCharacter } from "../../api/characterApi";
 
 import CharacterCreate from "../character-create/CharacterCreate";
-import CharacterEdit from "../character-edit/CharacterEdit";
+import CharacterEdit from "./character-edit/CharacterEdit";
 import Spinner from "../spinner/Spinner";
+import { useParams } from "react-router";
 
 export default function Character() {
+    const { userId: paramUserId } = useParams();
     const { userId } = useAuth();
     const getCharacter = useGetCharacter();
     const [character, setCharacter] = useState(false);
     const [editMode, setEditMode] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(() => {
-        getCharacter(userId).then(character => character ? setCharacter(character) : false).finally(() => setIsLoading(false));
+    const searchId = paramUserId ? paramUserId : userId;
+    // Extensive logic to first check if a user or guest is accessing the component (page). Set left side of check to false if guest. This avoids getting true if there is no user and no character as they both will return undefined
+    const isOwner = userId ? userId : false === character._ownerId;
 
-    }, [getCharacter, userId]);
+    useEffect(() => {
+        getCharacter(searchId).then(character => character ? setCharacter(character) : false).finally(() => setIsLoading(false));
+    }, [getCharacter, searchId]);
 
     function updateCharacter(characterDataResult) {
         setCharacter(characterDataResult);
@@ -38,11 +43,11 @@ export default function Character() {
                             <>
                                 <div className={styles["header-container"]}>
                                     <h2 className={styles["header"]}>Character</h2>
-                                    <button className={styles["edit-btn"]} onClick={toggleEdit}> Edit </button>
+                                    {isOwner && <button className={styles["edit-btn"]} onClick={toggleEdit}> Edit </button>}
                                 </div>
 
-                                <div className={styles["container"]}>
-                                    <main>
+                                <div className={styles["character-container"]}>
+                                    <main className={styles["main"]}>
                                         <img className={styles["img"]} src={character.image ? character.image : null} alt="" />
                                     </main>
 
@@ -75,7 +80,7 @@ export default function Character() {
                                 </div>
                             </>
                             :
-                            <CharacterCreate setCharacter={setCharacter} />
+                            isOwner ? <CharacterCreate setCharacter={setCharacter} /> : <p className={styles["no-character"]}>They haven't introduced themselves yet...</p>
             }
         </>
     );
