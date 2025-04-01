@@ -16,6 +16,7 @@ export default function Character() {
 
     useEffect(() => {
         getCharacter(userId).then(character => character ? setCharacter(character) : false).finally(() => setIsLoading(false));
+
     }, [getCharacter, userId]);
 
     function updateCharacter(characterDataResult) {

@@ -1,10 +1,22 @@
 import styles from "./CharacterCreate.module.css";
 import { useCreateCharacter } from "../../api/characterApi";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 export default function CharacterCreate({ setCharacter }) {
     const createCharacter = useCreateCharacter();
     const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const errorToastOptions = {
+        position: `top-right`,
+        className: styles["toast"],
+
+        style: {
+            color: `#FFFFFF`,
+            backgroundColor: `#E78F00`,
+            border: `2px solid red`
+        }
+    };
 
     const [formData, setFormData] = useState({
         image: '',
@@ -222,8 +234,8 @@ export default function CharacterCreate({ setCharacter }) {
             setCharacter(characterResult);
 
         } catch (error) {
-            console.error(error);
-            // TODO: Toaster
+            console.log(`Failed to create character:`, error);
+            toast.error(`Failed to create character. Try again`, errorToastOptions);
         }
         finally {
             setIsSubmitting(false);

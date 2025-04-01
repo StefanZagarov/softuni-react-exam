@@ -3,11 +3,34 @@ import { useCreateStory } from "../../api/storyApi";
 import useAuth from "../../hooks/useAuth";
 import styles from "./StoryCreate.module.css";
 import { useNavigate } from "react-router";
+import toast from "react-hot-toast";
 
 export default function StoryCreate() {
     const navigate = useNavigate();
     const createStory = useCreateStory();
     const { username } = useAuth();
+
+    const errorToastOptions = {
+        position: `top-right`,
+        className: styles["toast"],
+
+        style: {
+            color: `#FFFFFF`,
+            backgroundColor: `#E78F00`,
+            border: `2px solid red`
+        }
+    };
+
+    const successToastOptions = {
+        position: `top-right`,
+        className: styles["toast"],
+
+        style: {
+            color: `#FFFFFF`,
+            backgroundColor: `#E78F00`,
+            border: `2px solid green`
+        }
+    };
 
     const [formData, setFormData] = useState({
         image: ``,
@@ -147,12 +170,11 @@ export default function StoryCreate() {
         const fullStoryData = { ...storyData, username };
         try {
             await createStory(fullStoryData);
-
+            toast.success(`Story created`, successToastOptions);
             navigate(`/stories`);
-
         } catch (error) {
-            // TODO: Add toaster, check if the error is from the server or from the form requirements
-            console.log(error);
+            toast.error(`Failed to create story`, errorToastOptions);
+            console.log(`Failed to create story:`, error);
         }
     }
 

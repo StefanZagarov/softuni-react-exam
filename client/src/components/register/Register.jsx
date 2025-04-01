@@ -3,12 +3,35 @@ import { useNavigate } from "react-router";
 import { useRegister } from "../../api/authApi";
 import styles from "./Register.module.css";
 import { useUserContext } from "../../contexts/UserContext";
+import toast from "react-hot-toast";
 
 export default function Register() {
     const navigate = useNavigate();
     const register = useRegister();
     const { userLoginHandler } = useUserContext();
     const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const errorToastOptions = {
+        position: `top-right`,
+        className: styles["toast"],
+
+        style: {
+            color: `#FFFFFF`,
+            backgroundColor: `#E78F00`,
+            border: `2px solid red`
+        }
+    };
+
+    const successToastOptions = {
+        position: `top-right`,
+        className: styles["toast"],
+
+        style: {
+            color: `#FFFFFF`,
+            backgroundColor: `#E78F00`,
+            border: `2px solid green`
+        }
+    };
 
     const usernameRef = useRef(null);
     const passwordRef = useRef(null);
@@ -143,8 +166,7 @@ export default function Register() {
             const userData = await register(username, password);
 
             if (userData.code === 409) {
-                // TODO: Add toaster - A user with the same username already exists
-                console.log(`A user with the same username already exists`);
+                toast.error(`A user with the same username already exists`, errorToastOptions);
                 passwordRef.current.value = ``;
                 rePassRef.current.value = ``;
 
@@ -152,12 +174,13 @@ export default function Register() {
             }
 
             userLoginHandler(userData);
+            toast.success(`Registered`, successToastOptions);
             navigate(`/stories`);
             return;
 
         } catch (error) {
-            console.error("Registration error:", error);
-            // TODO: Add toaster -  form: error.message || "An error occurred during registration."
+            console.error("An error occurred during registration:", error);
+            toast.error(`An error occurred during registration. Try again`, errorToastOptions);
             setErrors(prev => ({ ...prev }));
             if (formRef.current) {
                 formRef.current.reset();

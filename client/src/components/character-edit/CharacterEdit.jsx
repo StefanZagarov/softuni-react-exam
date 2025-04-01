@@ -1,11 +1,23 @@
 import { useState } from "react";
 import { useEditCharacter } from "../../api/characterApi";
 import styles from "./CharacterEdit.module.css";
+import toast from "react-hot-toast";
 
 export default function CharacterEdit({ characterId, character, updateCharacter }) {
 
     const editCharacter = useEditCharacter();
     const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const errorToastOptions = {
+        position: `top-right`,
+        className: styles["toast"],
+
+        style: {
+            color: `#FFFFFF`,
+            backgroundColor: `#E78F00`,
+            border: `2px solid red`
+        }
+    };
 
     const [formData, setFormData] = useState({
         image: character.image,
@@ -223,7 +235,7 @@ export default function CharacterEdit({ characterId, character, updateCharacter 
             updateCharacter(characterDataResult);
         } catch (error) {
             console.log(`Failed to edit character:`, error);
-            // TODO: Toaster
+            toast.error(`Failed to create character. Try again`, errorToastOptions);
         }
         finally {
             setIsSubmitting(false);

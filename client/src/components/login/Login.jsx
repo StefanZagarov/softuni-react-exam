@@ -3,12 +3,35 @@ import { useState } from "react";
 import { useLogin } from "../../api/authApi";
 import { useNavigate } from "react-router";
 import { useUserContext } from "../../contexts/UserContext";
+import toast from "react-hot-toast";
 
 export default function Login() {
     const navigate = useNavigate();
     const login = useLogin();
     const { userLoginHandler } = useUserContext();
     const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const errorToastOptions = {
+        position: `top-right`,
+        className: styles["toast"],
+
+        style: {
+            color: `#FFFFFF`,
+            backgroundColor: `#E78F00`,
+            border: `2px solid red`
+        }
+    };
+
+    const successToastOptions = {
+        position: `top-right`,
+        className: styles["toast"],
+
+        style: {
+            color: `#FFFFFF`,
+            backgroundColor: `#E78F00`,
+            border: `2px solid green`
+        }
+    };
 
     const [formData, setFormData] = useState({
         username: '',
@@ -97,7 +120,6 @@ export default function Login() {
 
         if (!isValid) return;
 
-        setIsSubmitting(true);
         // Clear errors
         setErrors(prev => ({ ...prev }));
 
@@ -105,18 +127,21 @@ export default function Login() {
             const data = await login(formData.username, formData.password);
 
             if (data?.code === 403) {
+                toast.error(`Invalid username or password`, errorToastOptions);
                 setErrors(prev => ({ ...prev }));
-                // TODO: Use toaster - Invalid username or password
                 setFormData(prev => ({ ...prev, password: '' }));
             }
             else {
+                setIsSubmitting(true);
                 userLoginHandler(data);
 
+                toast.success(`Login successful`, successToastOptions);
                 navigate(`/stories`);
             }
         } catch (err) {
+            toast.error(`An error occurred during login`, errorToastOptions);
             console.error("Login API error:", err);
-            // TODO: Use toaster - An error occurred during login.
+
             setErrors(prev => ({ ...prev }));
             setFormData(prev => ({ ...prev, password: '' }));
         }

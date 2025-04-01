@@ -59,6 +59,8 @@ a:hover>.title {
     width: 44ch;
 
     margin: auto;
+
+    overflow-wrap: anywhere;
 }
 
 .author {

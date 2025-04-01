@@ -187,3 +187,10 @@
 
     transition: all 0.3s ease;
 }
+
+.toast {
+    font-size: 20px;
+
+    margin-top: 8em;
+    margin-right: 4em;
+}

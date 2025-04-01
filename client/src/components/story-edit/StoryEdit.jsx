@@ -3,12 +3,25 @@ import styles from "./StoryEdit.module.css";
 import { useEditStory, useGetOneStory } from "../../api/storyApi";
 import { useEffect, useState } from "react";
 import Spinner from "../spinner/Spinner";
+import toast from "react-hot-toast";
 
 export default function StoryEdit() {
     const navigate = useNavigate();
     const { storyId } = useParams();
     const [isSubmitting, setIsSubmitting] = useState(false);
     const { story, isLoading } = useGetOneStory(storyId);
+
+    const errorToastOptions = {
+        position: `top-right`,
+        className: styles["toast"],
+
+        style: {
+            color: `#FFFFFF`,
+            backgroundColor: `#E78F00`,
+            border: `2px solid red`
+        }
+    };
+
     useEffect(() => {
         if (story) {
             setFormData({
@@ -170,7 +183,7 @@ export default function StoryEdit() {
             navigate(`/stories/${storyId}/details`);
 
         } catch (error) {
-            // TODO: Add toaster, check if the error is from the server or from the form requirements
+            toast.error(`Failed to edit story`, errorToastOptions);
             console.log(`Failed to edit story:`, error);
         }
         finally {

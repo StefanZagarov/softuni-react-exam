@@ -5,6 +5,7 @@ import { useGetStoryTips, useHasUserTipped, useTipStory } from '../../api/tipSto
 import useAuth from '../../hooks/useAuth';
 import { useEffect, useState } from 'react';
 import Spinner from '../spinner/Spinner';
+import toast from 'react-hot-toast';
 
 export default function StoryDetails() {
     const navigate = useNavigate();
@@ -20,6 +21,28 @@ export default function StoryDetails() {
     const hasUserTipped = useHasUserTipped();
 
     const isOwner = userId ? userId === story._ownerId : false;
+
+    const errorToastOptions = {
+        position: `top-right`,
+        className: styles["toast"],
+
+        style: {
+            color: `#FFFFFF`,
+            backgroundColor: `#E78F00`,
+            border: `2px solid red`
+        }
+    };
+
+    const successToastOptions = {
+        position: `top-right`,
+        className: styles["toast"],
+
+        style: {
+            color: `#FFFFFF`,
+            backgroundColor: `#E78F00`,
+            border: `2px solid green`
+        }
+    };
 
     useEffect(() => {
         hasUserTipped(userId, storyId).then(setHasTipped);
@@ -40,6 +63,7 @@ export default function StoryDetails() {
 
             setTips(tips => tips + 1);
         } catch (error) {
+            toast.error(`Failed to tip story`, errorToastOptions);
             console.log(`Failed to tip story:`, error);
         }
     }
@@ -51,12 +75,12 @@ export default function StoryDetails() {
 
         try {
             await deleteStory(storyId);
+            toast.success(`Story deleted`, successToastOptions);
+            navigate(`/stories`);
         } catch (error) {
-            // TODO: Add toaster
+            toast.error(`Could not delete story`, errorToastOptions);
             console.log(`Could not delete story:`, error);
         }
-
-        navigate(`/stories`);
     }
 
     return (
