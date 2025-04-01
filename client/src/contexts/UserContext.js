@@ -1,6 +1,6 @@
 import { createContext, useContext } from "react";
 
-// 1. Create user context - used in the provider
+// Create user context - used in the provider
 export const UserContext = createContext({
     _id: '',
     username: '',
@@ -9,7 +9,7 @@ export const UserContext = createContext({
     userLogoutHandler: () => null
 });
 
-// 2. Hook for easier import - automates the need to use `useContext`
+// Hook for easier import - automates the need to use `useContext`
 export function useUserContext() {
     const userData = useContext(UserContext);
     return userData;

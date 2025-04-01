@@ -111,12 +111,14 @@ export default function Login() {
             }
             else {
                 userLoginHandler(data);
+
                 navigate(`/stories`);
             }
         } catch (err) {
             console.error("Login API error:", err);
             // TODO: Use toaster - An error occurred during login.
             setErrors(prev => ({ ...prev }));
+            setFormData(prev => ({ ...prev, password: '' }));
         }
         finally {
             setIsSubmitting(false);

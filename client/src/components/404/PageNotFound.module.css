@@ -1,0 +1,43 @@
+.container {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+}
+
+.status {
+    font-size: 160px;
+
+    color: rgb(121, 0, 0)
+}
+
+.text {
+    font-size: 60px;
+}
+
+.btn {
+    margin: 3em auto;
+    width: fit-content;
+
+    cursor: pointer;
+
+    align-self: center;
+
+    border: none;
+
+    padding: 0.8em 2.5em;
+
+    font-size: 20px;
+
+    border-radius: 5px;
+
+    background-color: var(--main-color);
+
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: rgb(231, 143, 0);
+}
