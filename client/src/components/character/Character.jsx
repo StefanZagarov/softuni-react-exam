@@ -21,7 +21,9 @@ export default function Character() {
     const isOwner = userId ? userId : false === character._ownerId;
 
     useEffect(() => {
-        getCharacter(searchId).then(character => character ? setCharacter(character) : false).finally(() => setIsLoading(false));
+        getCharacter(searchId)
+            .then(character => character ? setCharacter(character) : false)
+            .finally(() => setIsLoading(false));
     }, [getCharacter, searchId]);
 
     function updateCharacter(characterDataResult) {

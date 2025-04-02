@@ -62,13 +62,17 @@ a:hover>.title {
     overflow-wrap: anywhere;
 }
 
+.footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1em;
+}
+
 .author {
     font-weight: 100;
 }
 
 .created-by {
-    margin-top: 1em;
-
     font-weight: 900;
 }
 

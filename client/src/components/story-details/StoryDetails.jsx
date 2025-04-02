@@ -16,6 +16,7 @@ export default function StoryDetails() {
     const tipStory = useTipStory();
     const getStoryTips = useGetStoryTips();
     const [tips, setTips] = useState([]);
+    const [isTipping, setIsTipping] = useState(false);
 
     const [hasTipped, setHasTipped] = useState(false);
     const hasUserTipped = useHasUserTipped();
@@ -45,23 +46,30 @@ export default function StoryDetails() {
     };
 
     useEffect(() => {
+        if (isTipping) return;
         hasUserTipped(userId, storyId).then(setHasTipped);
-    }, [hasUserTipped, userId, storyId]);
+    }, [hasUserTipped, userId, storyId, isTipping]);
 
     useEffect(() => {
+        if (isTipping) return;
         // Avoid infinite loop by checking if the old and new numbers are the same, in other words - if we have set it already
         getStoryTips(storyId).then(newTips => setTips(oldTips => oldTips !== newTips ? newTips : oldTips));
 
-    }, [getStoryTips, tips, storyId]);
+    }, [getStoryTips, tips, storyId, isTipping]);
 
-    async function onTipBeer() {
+    async function handleTipBeer() {
         try {
+            setIsTipping(true);
+
             await tipStory(storyId);
 
-            setTips(tips => tips + 1);
+            // setTips(tips => tips + 1);
         } catch (error) {
             toast.error(`Failed to tip story`, errorToastOptions);
             console.log(`Failed to tip story:`, error);
+        }
+        finally {
+            setIsTipping(false);
         }
     }
 
@@ -105,8 +113,13 @@ export default function StoryDetails() {
 
                     {userId ? !isOwner &&
                         <div className={styles["beer-tips"]}>
-                            {hasTipped ? <div className={styles["tipped"]}>Tipped!</div> : <button className={styles["beer-btn"]} onClick={onTipBeer}>Tip Beer</button>}
-
+                            {hasTipped ? <div className={styles["tipped"]}>Tipped!</div>
+                                : <button className={styles["beer-btn"]}
+                                    onClick={handleTipBeer}
+                                    style={{ backgroundColor: isTipping ? `lightgray` : `` }}
+                                    disabled={isTipping}>
+                                    {isTipping ? `Tipping...` : `Tip Beer`}
+                                </button>}
                         </div>
                         : <div className={styles["info"]}>Login to tip beer</div>}
                     <p className={styles["beers-footer"]}>Beer tips: {tips}</p>
