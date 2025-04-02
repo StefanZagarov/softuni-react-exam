@@ -196,10 +196,9 @@ export default function Register() {
     };
 
     return (
-        <>
-            <h2 className={styles[`header`]}>Register</h2>
-
-            <form ref={formRef} onSubmit={handleSubmit} className={styles["container"]} noValidate>
+        <div className={styles["container"]}>
+            <form ref={formRef} onSubmit={handleSubmit} className={styles["form-container"]} noValidate>
+                <h2 className={styles[`header`]}>Register</h2>
 
                 {errors.form && (
                     <p className={styles["error-server"]}>{errors.form}</p>
@@ -247,6 +246,6 @@ export default function Register() {
                     {isSubmitting ? 'Registering...' : 'Register'}
                 </button>
             </form >
-        </>
+        </div>
     );
 };

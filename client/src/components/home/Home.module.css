@@ -1,18 +1,15 @@
 .home-container {
     display: flex;
-    flex-direction: column;
-    padding: 3em;
-
-    height: 100vh;
+    justify-content: center;
 }
 
 .welcome-container {
-    margin-left: 5em;
     margin-top: 5em;
-    margin-right: auto;
 
     display: flex;
     flex-direction: column;
+
+    position: absolute;
 }
 
 .home {
@@ -20,12 +17,15 @@
     text-align: center;
 
     font-weight: 500;
+
+    color: var(--card-background)
 }
 
 .title {
     font-size: 60px;
     font-weight: 900;
     font-family: "Dragon Hunter";
+    color: var(--main-color)
 }
 
 .btn {
@@ -49,4 +49,11 @@
 
 .btn:hover {
     background-color: var(--btn-hover);
+}
+
+.tavern {
+    z-index: -1;
+    border-radius: 10px;
+
+    object-fit: none;
 }

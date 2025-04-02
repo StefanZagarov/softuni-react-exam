@@ -157,9 +157,9 @@ export default function Login() {
 
     return (
         <>
-            <h2 className={styles[`header`]}>Login</h2>
 
             <form onSubmit={handleSubmit} className={styles["container"]} noValidate>
+                <h2 className={styles[`header`]}>Login</h2>
 
                 <div className={styles["input-group"]}>
                     <label className={styles['label']} htmlFor="username">Username</label>

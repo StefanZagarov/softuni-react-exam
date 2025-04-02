@@ -9,6 +9,7 @@ export default function Home() {
 
                 <Link to="/stories" className={styles["btn"]}> Go Inside </Link>
             </div>
+            <img className={styles["tavern"]} src="Tavern exterior.jpeg" alt="" />
 
         </div>
     );
