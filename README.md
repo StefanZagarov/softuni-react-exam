@@ -4,7 +4,7 @@ SoftUni React exam
 
 ## Description
 
-In this web application, "internet travelers" can rest at the inn, share their tales, read stories from others, and even tip a beer if they've enjoyed a good stroy.
+In this web application, "internet travelers" can share their tales, read stories from others, and even tip a beer if they've enjoyed a good stroy.
 
   - Stories: You can add, edit and delete your stories
   - Tip beer: You can tip a beer if you have enjoyed a particular story (but only if you are logged in)
