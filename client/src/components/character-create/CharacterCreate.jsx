@@ -230,7 +230,7 @@ export default function CharacterCreate({ setCharacter }) {
         };
         try {
             const characterResult = await createCharacter(characterData);
-
+            if (characterResult?.name === `AbortError`) return;
             setCharacter(characterResult);
 
         } catch (error) {

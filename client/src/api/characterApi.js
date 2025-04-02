@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import useAuth from "../hooks/useAuth";
 import requester from "../utils/requester";
 
@@ -6,10 +6,28 @@ const baseUrl = `http://localhost:3030/data/characters`;
 
 export function useCreateCharacter() {
     const { request } = useAuth();
+    const abortRef = useRef(null);
 
     function createCharacter(characterData) {
-        return request.post(baseUrl, characterData);
+        if (abortRef.current) {
+            abortRef.current.abort();
+        }
+        abortRef.current = new AbortController();
+
+        return request.post(
+            baseUrl,
+            characterData,
+            { signal: abortRef.current.signal }
+        );
     }
+
+    useEffect(() => {
+        return () => {
+            if (abortRef.current) {
+                abortRef.current.abort();
+            }
+        };
+    }, []);
 
     return createCharacter;
 }
@@ -33,23 +51,52 @@ export function useCreateCharacter() {
 // }
 
 export function useGetCharacter() {
-    // May be unstable
+    const abortRef = useRef(null);
+
     const getCharacter = useCallback(async (userId) => {
+        if (abortRef.current) {
+            abortRef.current.abort();
+        }
+        abortRef.current = new AbortController();
 
         const character = await requester.get(`${baseUrl}?where=_ownerId%3D%22${userId}%22`);
-
         return character[0];
-
     }, []);
+
+    useEffect(() => {
+        return () => {
+            if (abortRef.current) {
+                abortRef.current.abort();
+            }
+        };
+    }, []);
+
     return getCharacter;
 }
 
 export function useEditCharacter() {
     const { request } = useAuth();
+    const abortRef = useRef(null);
 
     function editCharacter(characterId, characterData) {
-        return request.put(`${baseUrl}/${characterId}`, characterData);
+        if (abortRef.current) {
+            abortRef.current.abort();
+        }
+        abortRef.current = new AbortController();
+
+        return request.put(`${baseUrl}/${characterId}`,
+            characterData,
+            { signal: abortRef.current.signal }
+        );
     }
+
+    useEffect(() => {
+        return () => {
+            if (abortRef.current) {
+                abortRef.current.abort();
+            }
+        };
+    }, []);
 
     return editCharacter;
 }

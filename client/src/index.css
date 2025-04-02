@@ -14,6 +14,7 @@
   --main-color: rgb(192, 120, 4);
   --card-background-gradient: linear-gradient(324deg, rgb(124, 98, 50) 0%, rgba(224, 211, 175, 1) 100%);
   --card-background: rgb(168, 168, 168);
+  --btn-hover: rgb(231, 143, 0);
 }
 
 @font-face {

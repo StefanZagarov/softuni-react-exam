@@ -257,7 +257,7 @@ export default function CharacterEdit({ characterId, character, updateCharacter 
         <>
             <div className={styles["header-container"]}>
                 <h2 className={styles["header"]}>Edit Character</h2>
-                <button form="char-edit-form" className={styles["edit-btn"]} style={{ backgroundColor: isSubmitting ? `lightgrey` : `` }}> {isSubmitting ? `Updating...` : `Finish Edit`} </button>
+                <button form="char-edit-form" className={styles["edit-btn"]} disabled={isSubmitting} style={{ backgroundColor: isSubmitting ? `lightgrey` : `` }}> {isSubmitting ? `Updating...` : `Finish Edit`} </button>
             </div>
 
             <form id="char-edit-form" onSubmit={handleCharacterEdit} className={styles["container"]}>

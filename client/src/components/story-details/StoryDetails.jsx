@@ -56,9 +56,6 @@ export default function StoryDetails() {
 
     async function onTipBeer() {
         try {
-            // Optimistic update (current logic does not require useOptimistic)
-            // setTips(prevTips => prevTips + 1);
-
             await tipStory(storyId);
 
             setTips(tips => tips + 1);
@@ -96,7 +93,7 @@ export default function StoryDetails() {
                     <h2 className={styles["title"]}>{story.title}</h2>
                     <img className={styles["img"]} src={story.image ? story.image : "../../../public/chw8yd858a681.webp"} alt="" />
                     <div className={styles["story-info"]}>
-                        <div className={styles["created-by"]}> <span className={styles["author"]}>Author:</span> {story.username}</div>
+                        <Link to={`/character/${story._ownerId}`} className={styles["created-by"]}> <span className={styles["author"]}>Author:</span> <span className={styles["user"]}>{story.username}</span></Link>
                         <p className={styles["beers"]}>Beer tips: {tips}</p>
                     </div>
 

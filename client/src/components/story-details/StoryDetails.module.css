@@ -87,7 +87,7 @@
 }
 
 .beer-btn:hover {
-    background-color: rgb(231, 143, 0);
+    background-color: var(--btn-hover);
 }
 
 .edit-btn {
@@ -111,7 +111,7 @@
 }
 
 .edit-btn:hover {
-    background-color: rgb(231, 143, 0);
+    background-color: var(--btn-hover);
 }
 
 .delete-btn {
@@ -136,7 +136,7 @@
 }
 
 .delete-btn:hover {
-    background-color: rgb(231, 143, 0);
+    background-color: var(--btn-hover);
 }
 
 .info {
@@ -193,4 +193,22 @@
 
     margin-top: 8em;
     margin-right: 4em;
+}
+
+.author {
+    font-weight: 100;
+}
+
+.created-by {
+    margin-top: 1em;
+
+    font-weight: 900;
+}
+
+.user {
+    transition: all 0.2s ease-out;
+}
+
+.created-by:hover .user {
+    color: var(--btn-hover);
 }

@@ -165,6 +165,11 @@ export default function Register() {
         try {
             const userData = await register(username, password);
 
+            // Abort controller
+            if (userData?.name === `AbortError`) {
+                console.log(`ABORTED`);
+                return;
+            }
             if (userData.code === 409) {
                 toast.error(`A user with the same username already exists`, errorToastOptions);
                 passwordRef.current.value = ``;

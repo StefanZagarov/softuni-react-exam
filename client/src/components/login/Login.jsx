@@ -121,26 +121,31 @@ export default function Login() {
         if (!isValid) return;
 
         // Clear errors
+        setIsSubmitting(true);
         setErrors(prev => ({ ...prev }));
 
         try {
-            const data = await login(formData.username, formData.password);
+            const userData = await login(formData.username, formData.password);
 
-            if (data?.code === 403) {
+            // Abort controller
+            if (userData?.name === `AbortError`) {
+                console.log(`ABORTED`);
+                return;
+            }
+            if (userData?.code === 403) {
                 toast.error(`Invalid username or password`, errorToastOptions);
                 setErrors(prev => ({ ...prev }));
                 setFormData(prev => ({ ...prev, password: '' }));
             }
             else {
-                setIsSubmitting(true);
-                userLoginHandler(data);
+                userLoginHandler(userData);
 
                 toast.success(`Login successful`, successToastOptions);
                 navigate(`/stories`);
             }
-        } catch (err) {
+        } catch (error) {
             toast.error(`An error occurred during login`, errorToastOptions);
-            console.error("Login API error:", err);
+            console.error("Login API error:", error);
 
             setErrors(prev => ({ ...prev }));
             setFormData(prev => ({ ...prev, password: '' }));
@@ -187,7 +192,8 @@ export default function Login() {
                 <button
                     type="submit"
                     className={styles["btn"]}
-                    disabled={isSubmitting}
+                    // Removing disabled to demonstrate that abort works by spamming the button
+                    // disabled={isSubmitting}
                     style={{ backgroundColor: isSubmitting ? `lightgray` : `` }}>
                     {isSubmitting ? `Logging in...` : `Login`}
                 </button>

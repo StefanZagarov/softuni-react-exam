@@ -207,7 +207,7 @@ export default function StoryEdit() {
                                 className={styles["input"]}
                                 placeholder="Give the audience the full picture"
                                 onChange={handleChange}
-                                value={formData.image}
+                                value={formData.image ? formData.image : ``}
                             />
                             <div><p id="image-error" className={styles["error"]}>{errors.image}</p></div>
                         </div>
@@ -254,7 +254,7 @@ export default function StoryEdit() {
                             <div><p id="story-error" className={styles["error"]}>{errors.story}</p></div>
                         </div>
 
-                        <button className={styles["btn"]} style={{ backgroundColor: isSubmitting ? `lightgray` : `` }}>{isSubmitting ? `Editing...` : `Edit`}</button>
+                        <button className={styles["btn"]} disabled={isSubmitting} style={{ backgroundColor: isSubmitting ? `lightgray` : `` }}>{isSubmitting ? `Editing...` : `Edit`}</button>
                     </form>
                 </>}
 
