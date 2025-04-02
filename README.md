@@ -22,6 +22,12 @@ In this web application, "internet travelers" can share their tales, read storie
   - Registered users can create their own avatar
   - Registered users can tip other stories
 
+  - Pre-registered users:
+    - Username: QuantumCactus
+      - Password: admin
+    - Username: FastTurtle
+      - Password: admin
+
 ## Technologies used:
 
   - Front-end: React 19
