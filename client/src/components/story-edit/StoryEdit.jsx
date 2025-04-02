@@ -170,7 +170,7 @@ export default function StoryEdit() {
         setIsSubmitting(true);
 
         const storyData = {
-            iamge: formData.image,
+            image: formData.image,
             title: formData.title,
             summary: formData.summary,
             story: formData.story,
