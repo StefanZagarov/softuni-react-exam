@@ -46,16 +46,16 @@ export default function StoryDetails() {
     };
 
     useEffect(() => {
-        if (isTipping) return;
+
         hasUserTipped(userId, storyId).then(setHasTipped);
-    }, [hasUserTipped, userId, storyId, isTipping]);
+    }, [hasUserTipped, userId, storyId]);
 
     useEffect(() => {
-        if (isTipping) return;
+
         // Avoid infinite loop by checking if the old and new numbers are the same, in other words - if we have set it already
         getStoryTips(storyId).then(newTips => setTips(oldTips => oldTips !== newTips ? newTips : oldTips));
 
-    }, [getStoryTips, tips, storyId, isTipping]);
+    }, [getStoryTips, tips, storyId]);
 
     async function handleTipBeer() {
         try {
@@ -67,9 +67,6 @@ export default function StoryDetails() {
         } catch (error) {
             toast.error(`Failed to tip story`, errorToastOptions);
             console.log(`Failed to tip story:`, error);
-        }
-        finally {
-            setIsTipping(false);
         }
     }
 
