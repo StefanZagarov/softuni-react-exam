@@ -24,5 +24,5 @@ In this web application, "internet travelers" can share their tales, read storie
 
 ## Technologies used:
 
-  - Front-end: React19
+  - Front-end: React 19
   - Back-end: SoftUni's practice server
