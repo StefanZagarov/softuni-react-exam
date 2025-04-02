@@ -37,8 +37,8 @@ export default function Character() {
     return (
         <>
             {
-                isLoading ? <Spinner /> :
-                    editMode ? <CharacterEdit characterId={character._id} character={character} updateCharacter={updateCharacter} />
+                isLoading ? <Spinner />
+                    : editMode ? <CharacterEdit characterId={character._id} character={character} updateCharacter={updateCharacter} />
                         :
                         character ?
                             <>
@@ -82,8 +82,7 @@ export default function Character() {
                             </>
                             :
                             paramUserId ?
-                                isOwner ? <CharacterCreate setCharacter={setCharacter} />
-                                    : <p className={styles["no-character"]}>They haven't introduced themselves yet...</p>
+                                <p className={styles["no-character"]}>They haven't introduced themselves yet...</p>
                                 : <CharacterCreate setCharacter={setCharacter} />
             }
         </>
