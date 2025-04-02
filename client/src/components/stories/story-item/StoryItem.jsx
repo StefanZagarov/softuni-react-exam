@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import styles from './StoryItem.module.css';
 import { Link } from "react-router";
 import { useGetStoryTips } from '../../../api/tipStoryApi';
-import Spinner from '../../spinner/Spinner';
+import CardSpinner from '../../spinner/card-spinner/CardSpinner';
 
 export default function StoryItem({ _id, image, title, summary, username, _ownerId }) {
     const [tips, setTips] = useState([]);
@@ -17,7 +17,7 @@ export default function StoryItem({ _id, image, title, summary, username, _owner
 
     return (
         <>
-            {isLoading ? <Spinner /> : <div className={styles["story-card"]}>
+            <div className={styles["story-card"]}>
 
                 <Link to={`/stories/${_id}/details`}><h2 className={styles["title"]}>{title}</h2></Link>
                 <div className={styles["title-border"]}></div>
@@ -30,9 +30,12 @@ export default function StoryItem({ _id, image, title, summary, username, _owner
 
                 <div className={styles["footer"]}>
                     <Link to={`/character/${_ownerId}`} className={styles["created-by"]}> <span className={styles["author"]}>Author:</span><span className={styles["user"]}>{username}</span> </Link>
-                    <p>Beers: {tips}</p>
+
+                    {isLoading ? <CardSpinner className={styles["test"]} />
+                        : <p>Beers: {tips}</p>
+                    }
                 </div>
-            </div>}
+            </div>
         </>
     );
 }

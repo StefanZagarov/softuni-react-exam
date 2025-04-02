@@ -17,8 +17,7 @@ export default function Character() {
     const [isLoading, setIsLoading] = useState(true);
 
     const searchId = paramUserId ? paramUserId : userId;
-    // Extensive logic to first check if a user or guest is accessing the component (page). Set left side of check to false if guest. This avoids getting true if there is no user and no character as they both will return undefined
-    const isOwner = userId ? userId : false === character._ownerId;
+    const isOwner = !!userId === character._ownerId;
 
     useEffect(() => {
         getCharacter(searchId)
@@ -78,7 +77,7 @@ export default function Character() {
 
                                 <div className={styles["description-container"]}>
                                     <p className={styles["label"]}>Description</p>
-                                    <p className={styles["description"]}> {character.description} </p>
+                                    <p className={styles["description"]}>{character.description}</p>
                                 </div>
                             </>
                             :

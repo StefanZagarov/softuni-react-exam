@@ -63,7 +63,7 @@ export default function StoryDetails() {
 
             await tipStory(storyId);
 
-            // setTips(tips => tips + 1);
+            setTips(tips => tips + 1);
         } catch (error) {
             toast.error(`Failed to tip story`, errorToastOptions);
             console.log(`Failed to tip story:`, error);

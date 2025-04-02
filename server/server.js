@@ -1360,9 +1360,33 @@
                 "username": "QuantumCactus",
                 "_createdOn": 1743175743666,
                 "_id": "d3b68b02-78cf-41d7-b6ee-fbe21d814691"
+            },
+            "a82d4fef-e8cb-4555-83c8-cbc806691b66": {
+                "image": "https://shared.reliclink.com/dlls/5dc13812eb5388292a2d4a1801813dfc.jpg",
+                "title": "Hell’s Drop",
+                "summary": "A veteran Guardsman recalls his harrowing descent into Hive City Prime, where an elite assault mission against orks turns into a desperate fight for survival. Amidst falling comrades and crashing Valkyries, the trooper faces the true cost of war.",
+                "story": "They dropped us in at dawn. The sky was a swirling hell of ash and fire, and the air smelled of ozone and promethium. We hit the ground running—literally. The second my boots slammed into the rubble of Hive City Prime, I was already moving, my lasgun up, finger hovering near the trigger.\n\nThe orks were everywhere.\n\nOur drop was supposed to be a clean strike—straight into the heart of the city to sever their command, if you could call the ramshackle mess of their warbands a command structure. But the greenskins were waiting. Our Valkyries barely had time to disgorge us before flak fire turned two of them into blazing wrecks. The screaming started early.\n\nSergeant Orlan was barking orders through the vox, trying to keep us together as we fought through the ruins. \"Suppressing fire on that barricade! Jerrik, on me!\" I barely had time to respond before he was vaulting over a pile of rubble, shotgun blasting in his hands. I followed, lasgun chattering, punching bright red holes in green hides. The orks barely felt it—some dropped, but others just laughed and charged.\n\nWe made it three streets in before the real hell broke loose.\n\nA klaxon blared in my helmet, warning of an incoming vehicle. I turned just in time to see a battlewagon barreling through the street, its massive spiked roller chewing through rockcrete and bodies alike. A rocket roared over my head—a krak missile from one of our heavies—but it went wide.\n\n\"MOVE!\" Orlan bellowed, shoving me into a shattered storefront just before the battlewagon slammed into our position. The impact sent debris flying, and I hit the ground hard. My vision swam. The sound of gunfire and roaring orks blurred into one violent cacophony.\n\nWhen I came to, Orlan was gone. The vox was a mess of static and screams. I pushed myself up, pain lancing through my ribs. My lasgun was gone. I reached for my sidearm just as an ork loomed over me, massive and grinning, a crude axe raised high.\n\nThen his head exploded.\n\nI barely registered the sound of hot-shot rounds tearing through the air before I was yanked to my feet by a trooper in Tempestus Scions armor. \"On your feet, Guardsman! We’re pulling out!\" The voice was sharp, precise, cutting through the chaos like a blade. The Scions had arrived, dropping in to reinforce what was left of us.\n\nWe fought our way back to the rally point, losing more by the minute. By the time we reached the extraction zone, only a handful of us remained. The Valkyrie doors slammed shut, and the bird lifted off, leaving the burning hive behind.\n\nI stared down at the city, at the smoke and the blood, at the tiny figures still fighting below. I clenched my fists. This war wasn’t over. Not by a long shot.",
+                "username": "FastTurtle",
+                "_createdOn": 1743610704684,
+                "_updatedOn": 1743610831199,
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830gsba",
+                "_id": "a82d4fef-e8cb-4555-83c8-cbc806691b66"
             }
         },
-        likes: {},
+        likes: {
+            "45fa3cc2-4a15-4792-a2be-35acc2eae83b": {
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830gsba",
+                "storyId": "d3b68b02-78cf-41d7-b6ee-fbe21d814691",
+                "_createdOn": 1743609898752,
+                "_id": "45fa3cc2-4a15-4792-a2be-35acc2eae83b"
+            },
+            "a64c4291-785f-4079-9649-2d4cedee58a3": {
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                "storyId": "a82d4fef-e8cb-4555-83c8-cbc806691b66",
+                "_createdOn": 1743610917414,
+                "_id": "a64c4291-785f-4079-9649-2d4cedee58a3"
+            }
+        },
         characters: {
             "350af851-de6c-4ebe-b357-83eb4fa4e03e": {
                 "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
