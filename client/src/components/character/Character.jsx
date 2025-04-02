@@ -17,8 +17,7 @@ export default function Character() {
     const [isLoading, setIsLoading] = useState(true);
 
     const searchId = paramUserId ? paramUserId : userId;
-    const isOwner = !!userId === character._ownerId;
-    console.log(isOwner);
+    const isOwner = userId !== undefined && character._ownerId !== undefined && userId === character._ownerId;
 
     useEffect(() => {
         getCharacter(searchId)
@@ -82,7 +81,10 @@ export default function Character() {
                                 </div>
                             </>
                             :
-                            paramUserId ? isOwner ? <CharacterCreate setCharacter={setCharacter} /> : <p className={styles["no-character"]}>They haven't introduced themselves yet...</p> : <CharacterCreate setCharacter={setCharacter} />
+                            paramUserId ?
+                                isOwner ? <CharacterCreate setCharacter={setCharacter} />
+                                    : <p className={styles["no-character"]}>They haven't introduced themselves yet...</p>
+                                : <CharacterCreate setCharacter={setCharacter} />
             }
         </>
     );
